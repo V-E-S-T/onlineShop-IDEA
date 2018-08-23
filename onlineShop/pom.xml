@@ -17,6 +17,8 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <javaee.version>8.0</javaee.version>
+    <spring.version>5.0.8.RELEASE</spring.version>
   </properties>
 
   <dependencies>
@@ -26,6 +28,33 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+    <!-- javaee-api -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${javaee.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+
+    <!--SPRING DEPENDENCY-->
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+
+      <!--JSTL (Java server page standard tag library) DEPENDENCY-->
+
+      <dependency>
+          <groupId>jstl</groupId>
+          <artifactId>jstl</artifactId>
+          <version>1.2</version>
+      </dependency>
+
+
   </dependencies>
 
   <build>
