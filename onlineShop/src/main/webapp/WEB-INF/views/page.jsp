@@ -7,6 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<spring:url var="css" value="/resources/css"/>   <%-- /resources/   is a logical name (variable) defined in dispatcher-servlet.xml with phisic location="/assets/"--%>
+<spring:url var="js" value="/resources/js"/>   <%-- /resources/   is a logical name (variable) defined in dispatcher-servlet.xml with phisic location="/assets/"--%>
+<spring:url var="images" value="/resources/images"/>   <%-- /resources/   is a logical name (variable) defined in dispatcher-servlet.xml with phisic location="/assets/"--%>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 
@@ -24,10 +29,14 @@
     <title>Shop Homepage - Start Bootstrap Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <%--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">--%>
+    <link href="${css}/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Readable Theme -->
+    <link href="${css}/assets/css/bootstrap-readable-theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="${css}/assets/css/shop-homepage.css" rel="stylesheet">
 
 </head>
 
@@ -226,8 +235,8 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${js}/assets/js/jquery.min.js"></script>
+<script src="${js}/assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
