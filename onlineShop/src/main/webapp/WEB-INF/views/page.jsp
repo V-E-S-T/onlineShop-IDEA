@@ -30,13 +30,13 @@
 
     <!-- Bootstrap core CSS -->
     <%--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">--%>
-    <link href="${css}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Readable Theme -->
-    <link href="${css}/assets/css/bootstrap-readable-theme.css" rel="stylesheet">
+    <%--<!-- Bootstrap Readable Theme -->--%>
+    <%--<link href="/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
 
     <!-- Custom styles for this template -->
-    <link href="${css}/assets/css/shop-homepage.css" rel="stylesheet">
+    <link href="/assets/css/shop-homepage.css" rel="stylesheet">
 
 </head>
 
@@ -235,8 +235,8 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="${js}/assets/js/jquery.min.js"></script>
-<script src="${js}/assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.bundle.js"></script>
 
 </body>
 
