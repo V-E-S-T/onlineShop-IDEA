@@ -14,36 +14,39 @@ public class PageController {
     {
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
                                                                  // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        mv.addObject("greeting", "Welcome to MVC");
+        mv.addObject("title", "Home");
+        mv.addObject("userClickHome", true);
 
         return mv;
     }
 
-//    @RequestMapping(value = "/test")
-//    public ModelAndView test(@RequestParam(value = "greeting", required = false) String greeting)
-//    {
-//        if (greeting == null)
-//        {
-//            greeting = "Hello World";
-//        }
-//        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
-//                                                                 // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-//        mv.addObject("greeting", greeting);
-//
-//        return mv;
-//    }
-
-    @RequestMapping(value = "/test/{greeting}")
-    public ModelAndView test(@PathVariable(value = "greeting", required = false) String greeting)
+    @RequestMapping(value = "/about")
+    public ModelAndView about()
     {
-        if (greeting == null)
-        {
-            greeting = "Hello World";
-        }
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        mv.addObject("greeting", greeting);
+        mv.addObject("title", "About us");
+        mv.addObject("userClickAbout", true);
+        return mv;
+    }
 
+    @RequestMapping(value = "/listProducts")
+    public ModelAndView listProducts()
+    {
+        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        mv.addObject("title", "List products");
+        mv.addObject("userClickListProducts", true);
+        return mv;
+    }
+
+    @RequestMapping(value = "/contact")
+    public ModelAndView contact()
+    {
+        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        mv.addObject("title", "Contact Us");
+        mv.addObject("userClickContact", true);
         return mv;
     }
 
