@@ -22,6 +22,14 @@
   </properties>
 
   <dependencies>
+
+    <!--Link backend project-->
+    <dependency>
+      <groupId>md.kniga</groupId>
+      <artifactId>backendOnlineShop</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
