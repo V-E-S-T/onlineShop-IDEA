@@ -1,24 +1,11 @@
-<c:set var="categories" value="${pageContext.request.getParameter('categories')}"/>
+
 <div class="container">
 
     <div class="row">
 
         <div class="col-lg-3">
 
-            <h1 class="my-4">Shop Name</h1>
-            <div class="list-group">
-
-
-                <c:forEach items="${categories}" var="category">
-                    <a href="#" class="list-group-item">${category.name}</a>
-                </c:forEach>
-                <%--<a href="#" class="list-group-item">Category 1</a>--%>
-                <%--<a href="#" class="list-group-item">Category 2</a>--%>
-                <%--<a href="#" class="list-group-item">Category 3</a>--%>
-                    <%--<c:if test="${userClickHome == true}">--%>
-                        <%--<%@include file="./shared/sidebar.jsp"%>--%>
-                    <%--</c:if>--%>
-            </div>
+            <%@include file="./shared/sidebar.jsp"%>
 
         </div>
         <!-- /.col-lg-3 -->

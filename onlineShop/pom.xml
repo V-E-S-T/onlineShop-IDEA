@@ -23,7 +23,7 @@
 
   <dependencies>
 
-    <!--Link backend project-->
+    <!--Link backendOnlineShop project to the frontend project-->
     <dependency>
       <groupId>md.kniga</groupId>
       <artifactId>backendOnlineShop</artifactId>

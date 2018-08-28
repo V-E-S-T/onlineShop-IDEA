@@ -5,7 +5,7 @@ public class Category {
     private int id;
     private String name;
     private String description;
-    private String imageURL;
+    private String imgeUrl;
     private boolean active = true;
 
     public int getId() {
@@ -20,8 +20,8 @@ public class Category {
         return description;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImgeUrl() {
+        return imgeUrl;
     }
 
     public boolean isActive() {
@@ -40,8 +40,8 @@ public class Category {
         this.description = description;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImgeUrl(String imgeUrl) {
+        this.imgeUrl = imgeUrl;
     }
 
     public void setActive(boolean active) {
