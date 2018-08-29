@@ -55,15 +55,12 @@ public class CategoryDAOImpl implements CategoryDAO {
         try{
             //add the category to the database
             sessionFactory.getCurrentSession().persist(category);
-
-
+            return true;
         }
         catch (Exception e){
             e.printStackTrace();
             return false;
-
         }
-        return false;
     }
 
     @Override

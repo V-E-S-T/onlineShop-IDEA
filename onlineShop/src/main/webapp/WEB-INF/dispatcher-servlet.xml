@@ -11,8 +11,8 @@
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
         ">
 
-    <context:component-scan base-package="md.kniga.onlineShop.Controller"/>
-    <context:component-scan base-package="md.kniga.backendOnlineShop.daoImpl"/>
+    <context:component-scan base-package="md.kniga.onlineShop"/>
+    <context:component-scan base-package="md.kniga.backendOnlineShop"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
