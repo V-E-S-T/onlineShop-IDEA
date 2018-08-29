@@ -26,15 +26,29 @@ public class CategoryTestCase {
         categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
     }
 
-    @Test
-    public void testAddCategory(){
+//    @Test
+//    public void testAddCategory(){
+//
+//        category = new Category();
+//        category.setName("Television");
+//        category.setDescription("Television description");
+//        category.setImgeUrl("CAT_1.png");
+//
+//        assertEquals("Successfully added a category inside the database", true, categoryDAO.add(category));
+//    }
 
-        category = new Category();
-        category.setName("Television");
-        category.setDescription("Television description");
-        category.setImgeUrl("CAT_1.png");
+//    @Test
+//    public void testGetCategory(){
+//        category = categoryDAO.get(3);
+//
+//        assertEquals("Successfully fetched a single category inside the database", "Television", category.getName());
+//    }
 
-        assertEquals("Successfully added a category inside the database", true, categoryDAO.add(category));
+      @Test
+      public void testUpdateCategory(){
+         category = categoryDAO.get(3);
+          category.setName("Tv");
+
+         assertEquals("Successfully fetched a single category inside the database", "Tv", category.getName());
     }
-
 }
