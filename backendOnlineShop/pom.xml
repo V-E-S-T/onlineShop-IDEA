@@ -17,6 +17,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <spring.version>5.0.8.RELEASE</spring.version>
+    <hibernate.version>5.2.14.Final</hibernate.version>
   </properties>
 
   <dependencies>
@@ -28,17 +29,49 @@
           <artifactId>spring-context</artifactId>
           <version>${spring.version}</version>
       </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-context</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-orm</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+
+      <!--H2 database DEPENDENCY-->
+
+      <dependency>
+          <groupId>com.h2database</groupId>
+          <artifactId>h2</artifactId>
+          <version>1.4.197</version>
+      </dependency>
+
+      <!--Hibernate database DEPENDENCY-->
+
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <version>${hibernate.version}</version>
+      </dependency>
+
+      <!--Database connection pooling DEPENDENCY needed for manage database connection pool -->
+
+      <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-dbcp2</artifactId>
+          <version>2.5.0</version>
+      </dependency>
+
+      <!--JUnit 4.12 DEPENDENCY -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>5.0.4.RELEASE</version>
-    </dependency>
+
   </dependencies>
 
   <build>
