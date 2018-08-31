@@ -3,13 +3,13 @@ package md.kniga.backendOnlineShop.daoImpl;
 import md.kniga.backendOnlineShop.dao.CategoryDAO;
 import md.kniga.backendOnlineShop.dto.Category;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Repository("categoryDAO")
 @Transactional
@@ -37,8 +37,11 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Override
     public List<Category> list() {
 
+        Query<Category> query = sessionFactory.getCurrentSession().createQuery("FROM Category WHERE active=:active", Category.class);
+        query.setParameter("active", true);
+
         //TODO make method implementation
-        return null;
+        return query.getResultList();
     }
 
     //getting single category
@@ -49,7 +52,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 //        if (optional.isPresent())
 //            return optional.get();
 //        else
-            //TODO make method implementation
+            //TODO make null handling
             return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
     }
 
@@ -58,7 +61,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     public boolean update(Category category) {
 
         try{
-            //add the category to the database
+            //update the category to the database
             sessionFactory.getCurrentSession().update(category);
             return true;
         }
@@ -68,8 +71,17 @@ public class CategoryDAOImpl implements CategoryDAO {
         }
     }
 
+    //deactivate the category to the database
     @Override
-    public boolean delete(Category category) {
-        return false;
+    public boolean deactivate(Category category) {
+        category.setActive(false);
+        return update(category);
+    }
+
+    @Override
+    public boolean delete(int categoryId) {
+
+        Query query = sessionFactory.getCurrentSession().createQuery("DELETE FROM Category WHERE id=:categoryId");
+        return query.setParameter("categoryId", categoryId).executeUpdate() != 0;
     }
 }
