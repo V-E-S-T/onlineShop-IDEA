@@ -1,4 +1,4 @@
-DROP TABLE category;
+DROP TABLE IF EXISTS category;
 CREATE TABLE category(
 
   id IDENTITY,
@@ -19,6 +19,8 @@ INSERT INTO category(name, description, image_url, is_active) VALUES
   ('Watches', 'Watches category', 'CAT_5.png', true),
   ('Tablet', 'Tablet category', 'CAT_6.png', true);
 
+
+DROP TABLE IF EXISTS user_detail;
 CREATE TABLE user_detail(
 
   id IDENTITY,
@@ -38,13 +40,15 @@ INSERT INTO user_detail(first_name, last_name, email, role, is_active, password,
   ('Tracy', 'Bullock', 'Tracy@email.com', 'user', true, 'password', '123456789'),
   ('John', 'Voinich', 'John@email.com', 'user', true, 'password', '123456789');
 
+
+
 CREATE TABLE product (
   id IDENTITY,
   code VARCHAR(20),
   name VARCHAR(255),
   brand VARCHAR(50),
   description VARCHAR(255),
-  image_url VARCHAR(50),
+  image_url VARCHAR(100),
   size VARCHAR(50),
   weight VARCHAR(50),
   unit_price DECIMAL(10,2),

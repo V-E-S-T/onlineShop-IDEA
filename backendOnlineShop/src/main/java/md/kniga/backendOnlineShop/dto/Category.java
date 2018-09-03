@@ -3,6 +3,7 @@ package md.kniga.backendOnlineShop.dto;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "category")
 public class Category {
 
     @Id
