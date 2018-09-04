@@ -9,7 +9,7 @@ $ (function () {
         case'Contact Us':
             $('#contact').addClass('active');   //#about - is a selector id=contact from navbar.jsp
             break;
-        case'List products':
+        case'All products':
             $('#listProducts').addClass('active');   //#listProducts - is a selector id=listProducts from navbar.jsp
             break;
         default:

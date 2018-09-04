@@ -42,7 +42,7 @@ public class PageController {
     {
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        mv.addObject("title", "List products");
+        mv.addObject("title", "All products");
         mv.addObject("userClickListProducts", true);
         return mv;
     }

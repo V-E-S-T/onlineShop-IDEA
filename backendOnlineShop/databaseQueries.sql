@@ -41,7 +41,7 @@ INSERT INTO user_detail(first_name, last_name, email, role, is_active, password,
   ('John', 'Voinich', 'John@email.com', 'user', true, 'password', '123456789');
 
 
-
+DROP TABLE IF EXISTS product;
 CREATE TABLE product (
   id IDENTITY,
   code VARCHAR(20),
@@ -60,7 +60,7 @@ CREATE TABLE product (
   views INT DEFAULT 0,
   CONSTRAINT pk_product_id PRIMARY KEY (id),
   CONSTRAINT fk_product_category_id FOREIGN KEY (category_id) REFERENCES category (id),
-  CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id),
+  CONSTRAINT fk_product_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_detail(id)
 );
 
 INSERT INTO product(code, name, brand, description, image_url, size, weight, unit_price, is_active, category_id, supplier_id) VALUES
