@@ -7,8 +7,6 @@ import java.util.*;
 public class Testing {
 
 
-
-
 //        Task description
 //        Task
 //        This is a demo task.
@@ -36,37 +34,112 @@ public class Testing {
 
 
 
-    public static Integer minValue2(int[] a){
+//    public static Integer minValue2(int[] A){
+//
+//        if (A.length==1){
+//            if(A[0]>0){
+//                return A[0] + 1;
+//            }
+//            else{
+//                return 1;
+//            }
+//        }
+//        Arrays.sort(A);
+//        for (int el: A){
+//            System.out.println(el);
+//        }
+//
+//        int in;
+//
+//        for (int i = 1; i < A.length; ++i){
+//            in = A[i-1];
+//            if(in >= 0){
+//                if ((in +1 != A[i]) && (in != A[i])){
+//                    if (in >= 0){
+//                        return in+1;
+//                    }
+//                }
+//                if (i == A.length - 1){
+//                    return A[i] + 1;
+//                }
+//            }
+//            else {
+//                return 1;
+//            }
+//        }
+//        return 1;
+//    }
 
-        Arrays.sort(a);
-        int in;
-        for (int i = 1; i < a.length; ++i){
-            in = a[i-1];
-            if(in > 0){
-                if ((in +1 != a[i]) && (in != a[i])){
-                    return in+1;
-                }
-                if (i == a.length - 1){
-                    return a[i] + 1;
-                }
+    public static int solution(String A, String B) {
+
+        String[] strA = A.split("");
+        String[] strB = B.split("");
+
+        int counter = 0;
+
+        HashMap<String, Integer> mapvalue = new HashMap<>();
+        mapvalue.put("A", 13);
+        mapvalue.put("K", 12);
+        mapvalue.put("Q", 11);
+        mapvalue.put("J", 10);
+        mapvalue.put("9", 9);
+        mapvalue.put("8", 8);
+        mapvalue.put("7", 7);
+        mapvalue.put("6", 6);
+        mapvalue.put("5", 5);
+        mapvalue.put("4", 4);
+        mapvalue.put("3", 3);
+        mapvalue.put("2", 2);
+
+        for(int i = 0; i < strA.length; ++i){
+
+            if (mapvalue.get(strA[i]) > mapvalue.get(strB[i])){
+                counter++;
             }
         }
+        return counter;
+    }
+
+    public int solution2(int[] A) {
+
+        int max = 0;
+        int min = 0;
+        for (int i = 0; i < A.length; ++i) {
+
+            if (A[i] > max) {
+                max = A[i];
+            }
+            if (A[i] < min) {
+                min = A[i];
+            }
+
+
+        }
+
         return 1;
+
+
+        // write your code in Java SE 8
     }
 
     public static void main(String[] args) {
 
-        int[] a = {1, 2, 3};
-//        int[] a = new int[1000000];
-//        for (int i = 0; i < 20; ++i){
-//            a[i] = new Random().nextInt(100);
-//            System.out.println(a[i]);
-//        }
 
-        StopWatch stopWatch2 = new StopWatch();
-        stopWatch2.start();
-        System.out.println("min related value: " + minValue2(a));
-        stopWatch2.stop();
-        System.out.println("with loop for: " + stopWatch2.getTotalTimeSeconds());
+        String str1="23456789AJKQ";
+        StringBuilder sb1=new StringBuilder(1000);
+        StringBuilder sb2=new StringBuilder(1000);
+        Random r = new Random();
+
+        //System.out.println("\n\t Unique codes are \n\n");
+        //for(int i=0;i<10;i++){
+            for(int j=0;j<1000;j++){
+                sb1.append(str1.charAt(r.nextInt(str1.length())));
+                sb2.append(str1.charAt(r.nextInt(str1.length())));
+            }
+            System.out.println(sb1);
+            System.out.println(sb2);
+        System.out.println(solution("K", "A"));
+
+        //}
     }
 }
