@@ -73,7 +73,7 @@ public class CategoryTestCase {
 //        //category = categoryDAO.get(1);
 //        //category.setActive(false);
 //
-//        assertEquals("Successfully fetched the list of categories from database", 4, categoryDAO.list());
+//        assertEquals("Successfully fetched the list of categories from database", 4, categoryDAO.list().size);
 //    }
 
     @Test

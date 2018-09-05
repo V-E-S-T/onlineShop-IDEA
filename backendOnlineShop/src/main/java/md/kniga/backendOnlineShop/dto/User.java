@@ -3,7 +3,7 @@ package md.kniga.backendOnlineShop.dto;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_detail")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -28,8 +28,8 @@ public class User {
     @Column(name = "contact_number")
     private String contact_number;
 
-    @Column(name = "is_active")
-    private boolean is_active;
+    @Column(name = "active")
+    private boolean active;
 
     public int getId() {
         return id;
@@ -59,8 +59,8 @@ public class User {
         return contact_number;
     }
 
-    public boolean isIs_active() {
-        return is_active;
+    public boolean isActive() {
+        return active;
     }
 
     public void setId(int id) {
@@ -91,8 +91,8 @@ public class User {
         this.contact_number = contact_number;
     }
 
-    public void setIs_active(boolean is_active) {
-        this.is_active = is_active;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     @Override
@@ -105,7 +105,7 @@ public class User {
                 ", role='" + role + '\'' +
                 ", password='" + password + '\'' +
                 ", contact_number='" + contact_number + '\'' +
-                ", is_active=" + is_active +
+                ", active=" + active +
                 '}';
     }
 }

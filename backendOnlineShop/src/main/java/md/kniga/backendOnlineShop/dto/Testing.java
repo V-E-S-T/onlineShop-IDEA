@@ -3,11 +3,10 @@ package md.kniga.backendOnlineShop.dto;
 import org.springframework.util.StopWatch;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Testing {
 
-    public static Integer maxValue1(int[] a){
+
 
 
 //        Task description
@@ -34,49 +33,40 @@ public class Testing {
 
         //return Collections.max(Arrays.stream(a).boxed().collect(Collectors.toList()));
         //Arrays.stream(a).boxed().sorted().filter(b -> b > 0 & )
-        TreeSet<Integer> list = new TreeSet<>();
-        for(int el: a){
-            list.add(el);
-        }
-        return list.first();
-    }
 
-    public static Integer maxValue2(int[] a){
 
-        int res;
-        int min = a[0];
-        List<Integer> list = new ArrayList<>();
-        for(int el: a){
-            //list.add(el);
-            if (el < min && el != 0){
-                min = el;
+
+    public static Integer minValue2(int[] a){
+
+        Arrays.sort(a);
+        int in;
+        for (int i = 1; i < a.length; ++i){
+            in = a[i-1];
+            if(in > 0){
+                if ((in +1 != a[i]) && (in != a[i])){
+                    return in+1;
+                }
+                if (i == a.length - 1){
+                    return a[i] + 1;
+                }
             }
         }
-
-        min = Collections.min(list);
-        int index = list.indexOf(min);
-
-
-
-        return Collections.max(list);
+        return 1;
     }
 
     public static void main(String[] args) {
 
-        int[] a = new int[10000000];
-        for (int i = 0; i < 10000000; ++i){
-            a[i] = i;
-        }
+        int[] a = {1, 2, 3};
+//        int[] a = new int[1000000];
+//        for (int i = 0; i < 20; ++i){
+//            a[i] = new Random().nextInt(100);
+//            System.out.println(a[i]);
+//        }
 
-        StopWatch stopWatch1 = new StopWatch();
-        stopWatch1.start();
-        maxValue1(a);
-        stopWatch1.stop();
         StopWatch stopWatch2 = new StopWatch();
         stopWatch2.start();
-        maxValue2(a);
+        System.out.println("min related value: " + minValue2(a));
         stopWatch2.stop();
-        System.out.println("with stream: " + stopWatch1.getTotalTimeSeconds());
         System.out.println("with loop for: " + stopWatch2.getTotalTimeSeconds());
     }
 }

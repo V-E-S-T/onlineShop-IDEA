@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository("categoryDAO")
@@ -18,7 +17,7 @@ public class CategoryDAOImpl implements CategoryDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    private static List<Category> categories = new ArrayList<>();
+    //private static List<Category> categories = new ArrayList<>();
 
     @Override
     public boolean add(Category category) {
@@ -40,7 +39,6 @@ public class CategoryDAOImpl implements CategoryDAO {
         Query<Category> query = sessionFactory.getCurrentSession().createQuery("FROM Category WHERE active=:active", Category.class);
         query.setParameter("active", true);
 
-        //TODO make method implementation
         return query.getResultList();
     }
 
@@ -53,7 +51,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 //            return optional.get();
 //        else
             //TODO make null handling
-            return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
+            return sessionFactory.getCurrentSession().get(Category.class, id);
     }
 
     //updating a single category

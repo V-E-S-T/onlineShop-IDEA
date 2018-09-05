@@ -1,7 +1,6 @@
 package md.kniga.backendOnlineShop.daoImpl;
 
 import md.kniga.backendOnlineShop.dao.UserDAO;
-import md.kniga.backendOnlineShop.dto.Category;
 import md.kniga.backendOnlineShop.dto.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -24,8 +23,7 @@ public class UserDAOImpl implements UserDAO{
         Query<User> query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE active=:active", User.class);
         query.setParameter("active", true);
 
-        //TODO make method implementation
-        return query.list();
+        return query.getResultList();
     }
 
     @Override
@@ -43,7 +41,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public boolean deactivate(User user) {
-        user.setIs_active(false);
+        user.setActive(false);
         return update(user);
     }
 
@@ -64,11 +62,21 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public User get(int id) {
-        return null;
+
+        return sessionFactory.getCurrentSession().get(User.class, id);
     }
 
     @Override
     public boolean add(User user) {
-        return false;
+
+        try{
+            //add the category to the database
+            sessionFactory.getCurrentSession().persist(user);
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
