@@ -49,7 +49,7 @@ public class CategoryTestCase {
          category = categoryDAO.get(4);
           category.setName("Tv");
 
-         assertEquals("Successfully fetched a single category inside the database", true, categoryDAO.update(category));
+         assertEquals("Successfully updated a single category inside the database", true, categoryDAO.update(category));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class CategoryTestCase {
         category = categoryDAO.get(1);
         //category.setActive(false);
 
-        assertEquals("Successfully deleted a single category", true, categoryDAO.deactivate(category));
+        assertEquals("Successfully deactivated a single category", true, categoryDAO.deactivate(category));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class CategoryTestCase {
         //category = categoryDAO.get(1);
         //category.setActive(false);
 
-        assertEquals("Successfully fetched the listAll of categories from database", 5, categoryDAO.listActive().size());
+        assertEquals("Successfully fetched the listActive of categories from database", 5, categoryDAO.listActive().size());
     }
 
     @Test
@@ -96,16 +96,16 @@ public class CategoryTestCase {
 
         //get test
         category = categoryDAO.get(3);//
-        assertEquals("Successfully fetched a single category inside the database", "Television", category.getName());
+        assertEquals("Successfully get a single category inside the database", "Television", category.getName());
 
         //update test
          category = categoryDAO.get(1);
          category.setName("Mobile");
-         assertEquals("Successfully fetched a single category inside the database", true, categoryDAO.update(category));
+         assertEquals("Successfully updated a single category inside the database", true, categoryDAO.update(category));
 
         //deactivate test
         category = categoryDAO.get(1);
-        assertEquals("Successfully deleted a single category", true, categoryDAO.deactivate(category));
+        assertEquals("Successfully deactivated a single category", true, categoryDAO.deactivate(category));
 
         //delete test
         assertEquals("Successfully deleted a single category", true, categoryDAO.delete(1));

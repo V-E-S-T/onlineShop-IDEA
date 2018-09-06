@@ -11,8 +11,10 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "code", nullable = false)
     private String code;
 
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     private String brand;
@@ -20,16 +22,16 @@ public class Product {
     private String description;
 
     @Column(name = "image_url")
-    private String imgeUrl;
+    private String imageUrl;
 
     private String size;
 
     private String weight;
 
-    @Column(name = "unit_price")
+    @Column(name = "unit_price", nullable = false)
     private String unitPrice;
 
-    @Column(name = "is_active")
+    @Column(name = "active")
     private boolean active;
 
     private int purchases;
@@ -61,8 +63,8 @@ public class Product {
         return description;
     }
 
-    public String getImgeUrl() {
-        return imgeUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
     public String getSize() {
@@ -109,8 +111,8 @@ public class Product {
         this.description = description;
     }
 
-    public void setImgeUrl(String imgeUrl) {
-        this.imgeUrl = imgeUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setSize(String size) {
@@ -145,7 +147,7 @@ public class Product {
                 ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", description='" + description + '\'' +
-                ", imgeUrl='" + imgeUrl + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", size='" + size + '\'' +
                 ", weight='" + weight + '\'' +
                 ", unitPrice='" + unitPrice + '\'' +

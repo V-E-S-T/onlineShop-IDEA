@@ -96,10 +96,10 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public List<Product> getLatestActiveProducts(int count) {
 
-        Query< Product> query = sessionFactory.getCurrentSession().createQuery("FROM Product WHERE active=:active", Product.class);
-        query.setParameter("active", true);
-
-        //TODO business logic is not true!!!
+        Query< Product> query = sessionFactory.getCurrentSession().createQuery("FROM Product WHERE active=:active ORDER BY id", Product.class);
+        query.setParameter("active", true)
+                .setFirstResult(0)
+                    .setMaxResults(count);
 
         return query.getResultList();
     }
