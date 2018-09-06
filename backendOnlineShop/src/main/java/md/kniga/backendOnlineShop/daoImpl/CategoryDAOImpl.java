@@ -14,6 +14,7 @@ import java.util.List;
 @Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
+
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -34,7 +35,15 @@ public class CategoryDAOImpl implements CategoryDAO {
     }
 
     @Override
-    public List<Category> list() {
+    public List<Category> listAll() {
+
+        Query<Category> query = sessionFactory.getCurrentSession().createQuery("FROM Category", Category.class);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Category> listActive() {
 
         Query<Category> query = sessionFactory.getCurrentSession().createQuery("FROM Category WHERE active=:active", Category.class);
         query.setParameter("active", true);

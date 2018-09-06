@@ -8,7 +8,9 @@ public interface CategoryDAO {
 
     boolean add(Category category);
 
-    List list();
+    List<Category> listAll();
+
+    List<Category> listActive();
 
     Category get(int id);
 

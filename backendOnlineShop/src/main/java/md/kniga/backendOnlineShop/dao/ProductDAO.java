@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductDAO {
 
-    List<Product> list();
+    List<Product> listAll();
 
     boolean update(Product product);
 

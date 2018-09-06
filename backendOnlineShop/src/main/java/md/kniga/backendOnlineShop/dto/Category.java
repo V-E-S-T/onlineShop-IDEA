@@ -15,7 +15,7 @@ public class Category {
     @Column(name = "image_url")
     private String imgeUrl;
 
-    @Column(name = "is_active")
+    @Column(name = "active")
     private boolean active = true;
 
     public int getId() {

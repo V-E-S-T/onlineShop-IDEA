@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -21,7 +20,7 @@ public class PageController {
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
                                                                  // viewResolver (bean viewResolver in dispatcher-servlet.xml)
         mv.addObject("title", "Home");
-        mv.addObject("categories", categoryDAO.list());
+        mv.addObject("categories", categoryDAO.listAll());
         mv.addObject("userClickHome", true);
 
         return mv;
@@ -65,7 +64,7 @@ public class PageController {
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
         mv.addObject("title", "Home");
-        mv.addObject("categories", categoryDAO.list());
+        mv.addObject("categories", categoryDAO.listAll());
         mv.addObject("userClickAllProducts", true);
 
         return mv;
@@ -81,8 +80,8 @@ public class PageController {
         Category category = null;
         category = categoryDAO.get(id);
         mv.addObject("title", category.getName());
-        //passing the list of categories into the jsp
-        mv.addObject("categories", categoryDAO.list());
+        //passing the listAll of categories into the jsp
+        mv.addObject("categories", categoryDAO.listAll());
         //passing the single category object into the jsp
         mv.addObject("category", category);
         mv.addObject("userClickCategoryProducts", true);

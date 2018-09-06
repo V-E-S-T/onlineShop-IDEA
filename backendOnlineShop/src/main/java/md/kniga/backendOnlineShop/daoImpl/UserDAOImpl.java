@@ -14,12 +14,22 @@ import java.util.List;
 @Transactional
 public class UserDAOImpl implements UserDAO{
 
+
+
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public List<User> list() {
+    public List<User> listAll() {
 
+        Query<User> query = sessionFactory.getCurrentSession().createQuery("FROM User", User.class);
+        //query.setParameter("active", true);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public List<User> listActive() {
         Query<User> query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE active=:active", User.class);
         query.setParameter("active", true);
 
@@ -35,8 +45,8 @@ public class UserDAOImpl implements UserDAO{
         }
         catch (Exception e){
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 
     @Override
@@ -56,7 +66,7 @@ public class UserDAOImpl implements UserDAO{
     public User getByEmail(String email) {
 
         Query<User> query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE email=:email", User.class);
-        query.setParameter("email", email).executeUpdate();
+        query.setParameter("email", email);
         return query.getSingleResult();
     }
 
@@ -76,7 +86,7 @@ public class UserDAOImpl implements UserDAO{
         }
         catch (Exception e){
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
 }

@@ -26,55 +26,63 @@ public class CategoryTestCase {
         categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
     }
 
-//    @Test
-//    public void testAddCategory(){
-//
-//        category = new Category();
-//        category.setName("Television");
-//        category.setDescription("Television description");
-//        category.setImgeUrl("CAT_1.png");
-//
-//        assertEquals("Successfully added a category inside the database", true, categoryDAO.add(category));
-//    }
+    @Test
+    public void testAddCategory(){
 
-//    @Test
-//    public void testGetCategory(){
-//        category = categoryDAO.get(3);
-//
-//        assertEquals("Successfully fetched a single category inside the database", "Television", category.getName());
-//    }
+        category = new Category();
+        category.setName("Television");
+        category.setDescription("Television description");
+        category.setImgeUrl("CAT_1.png");
 
-//      @Test
-//      public void testUpdateCategory(){
-//         category = categoryDAO.get(4);
-//          category.setName("Tv");
-//
-//         assertEquals("Successfully fetched a single category inside the database", true, categoryDAO.update(category));
-//    }
+        assertEquals("Successfully added a category inside the database", true, categoryDAO.add(category));
+    }
 
-//    @Test
-//    public void testDeactivateCategory(){
-//        category = categoryDAO.get(1);
-//        //category.setActive(false);
-//
-//        assertEquals("Successfully deleted a single category", true, categoryDAO.deactivate(category));
-//    }
+    @Test
+    public void testGetCategory(){
+        category = categoryDAO.get(3);
 
-//    @Test
-//    public void testDeleteCategory(){
-//        category = categoryDAO.get(1);
-//        //category.setActive(false);
-//
-//        assertEquals("Successfully deleted a single category", true, categoryDAO.delete(8));
-//    }
+        assertEquals("Successfully fetched a single category inside the database", "Television", category.getName());
+    }
 
-//    @Test
-//    public void testListCategory(){
-//        //category = categoryDAO.get(1);
-//        //category.setActive(false);
-//
-//        assertEquals("Successfully fetched the list of categories from database", 4, categoryDAO.list().size);
-//    }
+      @Test
+      public void testUpdateCategory(){
+         category = categoryDAO.get(4);
+          category.setName("Tv");
+
+         assertEquals("Successfully fetched a single category inside the database", true, categoryDAO.update(category));
+    }
+
+    @Test
+    public void testDeactivateCategory(){
+        category = categoryDAO.get(1);
+        //category.setActive(false);
+
+        assertEquals("Successfully deleted a single category", true, categoryDAO.deactivate(category));
+    }
+
+    @Test
+    public void testDeleteCategory(){
+        category = categoryDAO.get(1);
+        //category.setActive(false);
+
+        assertEquals("Successfully deleted a single category", true, categoryDAO.delete(8));
+    }
+
+    @Test
+    public void testListAllCategory(){
+        //category = categoryDAO.get(1);
+        //category.setActive(false);
+
+        assertEquals("Successfully fetched the listAll of categories from database", 6, categoryDAO.listAll().size());
+    }
+
+    @Test
+    public void testListActiveCategory(){
+        //category = categoryDAO.get(1);
+        //category.setActive(false);
+
+        assertEquals("Successfully fetched the listAll of categories from database", 5, categoryDAO.listActive().size());
+    }
 
     @Test
     public void testCRUDCategory(){
@@ -102,8 +110,8 @@ public class CategoryTestCase {
         //delete test
         assertEquals("Successfully deleted a single category", true, categoryDAO.delete(1));
 
-        //list test
-        assertEquals("Successfully fetched the list of categories from database", 6, categoryDAO.list().size());
+        //listAll test
+        assertEquals("Successfully fetched the listAll of categories from database", 6, categoryDAO.listAll().size());
 
     }
 

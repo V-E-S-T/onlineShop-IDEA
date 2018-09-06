@@ -5,7 +5,9 @@ import java.util.List;
 
 public interface UserDAO {
 
-    List<User> list();
+    List<User> listAll();
+
+    List<User> listActive();
 
     boolean update(User user);
 

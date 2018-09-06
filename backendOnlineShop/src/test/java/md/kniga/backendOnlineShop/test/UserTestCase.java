@@ -2,7 +2,6 @@ package md.kniga.backendOnlineShop.test;
 
 
 import md.kniga.backendOnlineShop.dao.UserDAO;
-import md.kniga.backendOnlineShop.daoImpl.UserDAOImpl;
 import md.kniga.backendOnlineShop.dto.User;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class UserTestCase {
     }
 
     @Test
-    public void testAddUser(){
+    public void testAdd(){
 
         user = new User();
         user.setFirst_name("Michael");
@@ -43,37 +42,50 @@ public class UserTestCase {
     }
 
     @Test
-    public void testGetUser(){
+    public void testGet(){
 
         user = userDAO.get(1);
         assertEquals("Successfully fetched a single category inside the database", "Mike", user.getFirst_name());
     }
 
+    @Test
+    public void testGetByEmail(){
+
+        user = userDAO.getByEmail("Mike@email.com");
+        assertEquals("Successfully fetched a single category inside the database", "Mike", user.getFirst_name());
+    }
+
       @Test
-      public void testUpdateUser(){
+      public void testUpdate(){
 
           user = userDAO.get(1);
-          user.setActive(true);
+          user.setActive(false);
          assertEquals("Successfully fetched a single category inside the database", true, userDAO.update(user));
     }
 
     @Test
-    public void testDeactivateUser(){
+    public void testDeactivate(){
 
         user = userDAO.get(1);
         assertEquals("Successfully deleted a single category", true, userDAO.deactivate(user));
     }
 
     @Test
-    public void testDeleteUser(){
+    public void testDelete(){
 
         assertEquals("Successfully deleted a single category", true, userDAO.delete(3));
     }
 
     @Test
-    public void testListUser(){
+    public void testListAll(){
 
-        assertEquals("Successfully fetched the list of users from database", 3, userDAO.list().size());
+        assertEquals("Successfully fetched the listAll of users from database", 3, userDAO.listAll().size());
+    }
+
+    @Test
+    public void testListActive(){
+
+        assertEquals("Successfully fetched the listAll of users from database", 2, userDAO.listActive().size());
     }
 
 }
