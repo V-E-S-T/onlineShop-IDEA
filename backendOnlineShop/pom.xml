@@ -55,6 +55,12 @@
           <groupId>org.hibernate</groupId>
           <artifactId>hibernate-core</artifactId>
           <version>${hibernate.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>jboss-logging</artifactId>
+                  <groupId>org.jboss.logging</groupId>
+              </exclusion>
+          </exclusions>
       </dependency>
 
       <!--Database connection pooling DEPENDENCY needed for manage database connection pool -->
@@ -78,6 +84,12 @@
           <groupId>com.fasterxml.jackson.core</groupId>
           <artifactId>jackson-databind</artifactId>
           <version>${jackson.version}</version>
+          <exclusions>
+              <exclusion>
+                  <artifactId>jackson-annotations</artifactId>
+                  <groupId>com.fasterxml.jackson.core</groupId>
+              </exclusion>
+          </exclusions>
       </dependency>
 
       <dependency>
