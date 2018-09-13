@@ -38,24 +38,25 @@
       <scope>test</scope>
     </dependency>
 
-    <!--Jackson-->
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>jackson-annotations</artifactId>
-          <groupId>com.fasterxml.jackson.core</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
+    <!--Jackson-->
+    <!--<dependency>-->
+      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+      <!--<artifactId>jackson-databind</artifactId>-->
+      <!--<version>${jackson.version}</version>-->
+      <!--&lt;!&ndash;<exclusions>&ndash;&gt;-->
+        <!--&lt;!&ndash;<exclusion>&ndash;&gt;-->
+          <!--&lt;!&ndash;<artifactId>jackson-annotations</artifactId>&ndash;&gt;-->
+          <!--&lt;!&ndash;<groupId>com.fasterxml.jackson.core</groupId>&ndash;&gt;-->
+        <!--&lt;!&ndash;</exclusion>&ndash;&gt;-->
+      <!--&lt;!&ndash;</exclusions>&ndash;&gt;-->
+    <!--</dependency>-->
+
+    <!--<dependency>-->
+      <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+      <!--<artifactId>jackson-annotations</artifactId>-->
+      <!--<version>${jackson.version}</version>-->
+    <!--</dependency>-->
 
     <!-- javaee-api -->
     <dependency>

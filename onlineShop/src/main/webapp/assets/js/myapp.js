@@ -18,4 +18,29 @@ $ (function () {
             $('#a_'+menubar).addClass('active');     // menubar = '${title}' from PageController = category.getName()
             break;
     }
+
+    //code for jquery DataTable
+    //create dataset
+
+    var product = [
+        ['1', 'ABC'],
+        ['2', 'DFJ'],
+        ['3', 'JKL'],
+        ['4', 'MNO'],
+        ['5', 'PRS'],
+        ['6', 'TUF'],
+        ['7', 'HSC']
+    ];
+
+    var $table = $('productListTable');
+
+    // execute this code only where we have this table
+
+    if ($table.length){
+
+        console.log('Inside the table');
+    }
+
+
+
 });

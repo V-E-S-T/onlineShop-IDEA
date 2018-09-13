@@ -76,9 +76,13 @@
         <!-- Footer -->
         <%@include file="./shared/footer.jsp"%>
 
-        <!-- Bootstrap core JavaScript -->
+        <!-- jQuery JavaScript -->
         <script src="${contextRoot}/assets/js/jquery.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script src="${contextRoot}/assets/js/bootstrap.min.js"></script>
         <script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>
+        <!-- DataTable Plugin -->
+        <script src="${contextRoot}/assets/js/jquery.dataTables.js"></script>
         <!-- Self coded JavaScript -->
         <script src="${contextRoot}/assets/js/myapp.js"></script>
 

@@ -10,6 +10,8 @@
 
         <div class="col-md-9">
 
+            <%--Added breadcrumb component--%>
+
             <div class="row">
                 <div class="col-lg-12">
                     <c:if test="${userClickAllProducts == true}">
@@ -26,6 +28,21 @@
                             <li class="active">/ ${category.name}</li>
                         </ol>
                     </c:if>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <table id="productListTable" class="table table-striped table-bordered">
+
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>name</th>
+                            </tr>
+                        </thead>
+
+                    </table>
                 </div>
             </div>
 
