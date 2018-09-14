@@ -40,6 +40,9 @@
         <link href="${contextRoot}/assets/css/_bootswatch.scss" rel="stylesheet">
         <link href="${contextRoot}/assets/css/_variables.scss" rel="stylesheet">
 
+        <%--<!-- DataTable -->--%>
+        <link href="${contextRoot}/assets/css/dataTables.bootstrap.css" rel="stylesheet">
+
         <!-- Custom styles for this template -->
         <link href="${contextRoot}/assets/css/shop-homepage.css" rel="stylesheet">
 
@@ -83,6 +86,11 @@
         <script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>
         <!-- DataTable Plugin -->
         <script src="${contextRoot}/assets/js/jquery.dataTables.js"></script>
+
+        <!-- DataTable Bootstrap JavaScript -->
+        <script src="${contextRoot}/assets/js/dataTables.bootstrap.js"></script>
+
+
         <!-- Self coded JavaScript -->
         <script src="${contextRoot}/assets/js/myapp.js"></script>
 

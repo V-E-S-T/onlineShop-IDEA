@@ -22,7 +22,7 @@ $ (function () {
     //code for jquery DataTable
     //create dataset
 
-    var product = [
+    var products = [
         ['1', 'ABC'],
         ['2', 'DFJ'],
         ['3', 'JKL'],
@@ -32,13 +32,21 @@ $ (function () {
         ['7', 'HSC']
     ];
 
-    var $table = $('productListTable');
+    var $table = $('#productListTable');
 
     // execute this code only where we have this table
 
     if ($table.length){
 
-        console.log('Inside the table');
+        //console.log('Inside the table');
+
+        $table.DataTable({
+
+            lengthMenu: [[3,5,10,-1], ['3 records', '5 records','10 records','All']],
+            pageLength: 5,
+            data: products
+
+        });
     }
 
 
