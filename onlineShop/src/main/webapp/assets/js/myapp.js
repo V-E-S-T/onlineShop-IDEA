@@ -19,18 +19,6 @@ $ (function () {
             break;
     }
 
-    //code for jquery DataTable
-    //create dataset
-
-    var products = [
-        ['1', 'ABC'],
-        ['2', 'DFJ'],
-        ['3', 'JKL'],
-        ['4', 'MNO'],
-        ['5', 'PRS'],
-        ['6', 'TUF'],
-        ['7', 'HSC']
-    ];
 
     var $table = $('#productListTable');
 
@@ -38,13 +26,52 @@ $ (function () {
 
     if ($table.length){
 
+        var jsonUrl = '';
+        // window.categoryID is added into listProduct.jsp when checking userClickAllProducts or userClickCategoryProducts from PageController
+        if (window.categoryID == ''){
+
+            jsonUrl = window.contextRoot + '/json/data/all/products';
+        }
+        else {
+            jsonUrl = window.contextRoot + '/json/category/' + window.categoryID + '/products';
+        }
+
         //console.log('Inside the table');
 
         $table.DataTable({
 
             lengthMenu: [[3,5,10,-1], ['3 records', '5 records','10 records','All']],
             pageLength: 5,
-            data: products
+            ajax: {
+                url: jsonUrl,
+                dataSrc: ''
+            },
+            columns: [
+                {
+                    data: 'name'
+                },
+                {
+                    data: 'size'
+                },
+                {
+                    data: 'weight'
+                },
+                {
+                    data: 'unitPrice',
+                    mRender: function (data, type, row) {
+                        return '&#8381; ' + data
+                    }
+                },
+                {
+                    data: 'id',
+                    mRender: function (data, type, row) {
+                        var str = '';
+                        str += '<a href="'+ window.contextRoot + '/show' + data + '/product" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>';
+                        str += '<a href="'+ window.contextRoot + '/cart/add' + data + '/product" class="btn btn-success"><span class="glyphicon glyphicon-shoping-cart"></a>';
+                        return str;
+                    }
+                }
+            ]
 
         });
     }

@@ -25,10 +25,12 @@
         <script>
             <%--variable ${title} we get from PageController as attribute name "title"--%>
             window.menubar = '${title}';
+
+            window.contextRoot = '${contextRoot}';
         </script>
 
         <!-- Bootstrap core CSS -->
-        <link href="${contextRoot}/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="${contextRoot}/assets/css/bootstrap.css" rel="stylesheet">
 
         <!-- Bootstrap readable theme -->
         <%--<link href="${contextRoot}/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
@@ -37,8 +39,8 @@
         <%--<link href="/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
 
         <%--<!-- Bootstrap Readable Theme -->--%>
-        <link href="${contextRoot}/assets/css/_bootswatch.scss" rel="stylesheet">
-        <link href="${contextRoot}/assets/css/_variables.scss" rel="stylesheet">
+        <%--<link href="${contextRoot}/assets/css/_bootswatch.scss" rel="stylesheet">--%>
+        <%--<link href="${contextRoot}/assets/css/_variables.scss" rel="stylesheet">--%>
 
         <%--<!-- DataTable -->--%>
         <link href="${contextRoot}/assets/css/dataTables.bootstrap.css" rel="stylesheet">
@@ -82,13 +84,13 @@
         <!-- jQuery JavaScript -->
         <script src="${contextRoot}/assets/js/jquery.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script src="${contextRoot}/assets/js/bootstrap.min.js"></script>
-        <script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>
+        <script src="${contextRoot}/assets/js/bootstrap.js"></script>
+        <%--<script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>--%>
         <!-- DataTable Plugin -->
         <script src="${contextRoot}/assets/js/jquery.dataTables.js"></script>
 
         <!-- DataTable Bootstrap JavaScript -->
-        <script src="${contextRoot}/assets/js/dataTables.bootstrap.js"></script>
+        <script src="${contextRoot}/assets/js/dataTables.bootstrap4.js"></script>
 
 
         <!-- Self coded JavaScript -->
