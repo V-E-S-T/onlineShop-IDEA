@@ -89,7 +89,7 @@ public class ProductDAOImplTest {
     @Test
     public void listActiveProductsByCategory() throws Exception {
 
-        assertEquals("Successfully fetched the listActiveProductsByCategory of categories from database", 1, productDAO.listActiveProductsByCategory(3).size());
+        assertEquals("Successfully fetched the listActiveProductsByCategory of categories from database", 2, productDAO.listActiveProductsByCategory(3).size());
     }
 
     @Test

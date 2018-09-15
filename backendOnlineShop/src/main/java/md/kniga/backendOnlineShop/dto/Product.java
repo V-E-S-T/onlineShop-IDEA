@@ -34,6 +34,9 @@ public class Product {
     @Column(name = "active")
     private boolean active;
 
+    @Column(name = "category_id", nullable = false)
+    private String categoryID;
+
     private int purchases;
 
     private int views;
@@ -91,8 +94,16 @@ public class Product {
         return views;
     }
 
+    public String getCategoryID() {
+        return categoryID;
+    }
+
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setCategoryID(String categoryID) {
+        this.categoryID = categoryID;
     }
 
     public void setCode(String code) {

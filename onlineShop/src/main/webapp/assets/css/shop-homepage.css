@@ -1,3 +1,4 @@
+
 /*!
  * Start Bootstrap - Shop Homepage (http://startbootstrap.com/)
  * Copyright 2013-2016 Start Bootstrap
@@ -85,9 +86,9 @@ footer {
 
 .dataTableImg {
 
-  width:100px;
-  height: 100px;
-
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .has-success {

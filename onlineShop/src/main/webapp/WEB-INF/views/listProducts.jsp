@@ -46,6 +46,7 @@
 
                         <thead>
                             <tr>
+                                <th></th>
                                 <th>Name</th>
                                 <th>Size</th>
                                 <th>Weight</th>
@@ -56,6 +57,7 @@
 
                         <tfoot>
                             <tr>
+                                <th></th>
                                 <th>Name</th>
                                 <th>Size</th>
                                 <th>Weight</th>

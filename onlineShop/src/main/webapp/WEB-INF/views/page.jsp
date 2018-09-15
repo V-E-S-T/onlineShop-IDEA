@@ -32,13 +32,16 @@
         <!-- Bootstrap core CSS -->
         <link href="${contextRoot}/assets/css/bootstrap.css" rel="stylesheet">
 
+        <!-- fontAwesome icons -->
+        <link href="${contextRoot}/assets/css/fontawesome.css" rel="stylesheet">
+
         <!-- Bootstrap readable theme -->
         <%--<link href="${contextRoot}/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
 
-        <%--<!-- Bootstrap Readable Theme -->--%>
-        <%--<link href="/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
+        <!-- Bootstrap Readable Theme -->
+        <link href="${contextRoot}/assets/css/bootstrap-theme.css" rel="stylesheet">
 
-        <%--<!-- Bootstrap Readable Theme -->--%>
+        <%--<!-- Bootstrap Readable Theme ->--%>
         <%--<link href="${contextRoot}/assets/css/_bootswatch.scss" rel="stylesheet">--%>
         <%--<link href="${contextRoot}/assets/css/_variables.scss" rel="stylesheet">--%>
 

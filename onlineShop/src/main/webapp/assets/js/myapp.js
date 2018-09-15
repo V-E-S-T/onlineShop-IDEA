@@ -33,7 +33,7 @@ $ (function () {
             jsonUrl = window.contextRoot + '/json/data/all/products';
         }
         else {
-            jsonUrl = window.contextRoot + '/json/category/' + window.categoryID + '/products';
+            jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryID + '/products';
         }
 
         //console.log('Inside the table');
@@ -47,6 +47,12 @@ $ (function () {
                 dataSrc: ''
             },
             columns: [
+                {
+                    data: 'code',
+                    mRender: function (data, type, row) {
+                        return '<img src="'+ window.contextRoot + '/resources/images/' + data + '.jpg" class="dataTableImg"/>';
+                    }
+                },
                 {
                     data: 'name'
                 },
@@ -64,10 +70,11 @@ $ (function () {
                 },
                 {
                     data: 'id',
+                    bSortable: false,
                     mRender: function (data, type, row) {
                         var str = '';
-                        str += '<a href="'+ window.contextRoot + '/show' + data + '/product" class="btn btn-info"><span class="glyphicon glyphicon-eye-open"></span></a>';
-                        str += '<a href="'+ window.contextRoot + '/cart/add' + data + '/product" class="btn btn-success"><span class="glyphicon glyphicon-shoping-cart"></a>';
+                        str += '<a href="'+ window.contextRoot + '/show' + data + '/product" class="btn btn-info"><span class="fa fa-eye"></span></a> &#160';
+                        str += '<a href="'+ window.contextRoot + '/cart/add' + data + '/product" class="btn btn-success"><span class="fa fa-cart-plus"></a>';
                         return str;
                     }
                 }
