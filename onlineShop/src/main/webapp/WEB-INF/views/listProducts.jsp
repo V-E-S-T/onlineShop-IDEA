@@ -33,7 +33,6 @@
                         </script>
                         <ol class="breadcrumb">
                             <li><a href="${contextRoot}/home">Home&nbsp;</a></li>
-                            <li class="active">/ Category&nbsp;</li>
                             <li class="active">/ ${category.name}</li>
                         </ol>
                     </c:if>

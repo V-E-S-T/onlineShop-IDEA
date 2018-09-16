@@ -1,7 +1,9 @@
 package md.kniga.onlineShop.Controller;
 
 import md.kniga.backendOnlineShop.dao.CategoryDAO;
+import md.kniga.backendOnlineShop.dao.ProductDAO;
 import md.kniga.backendOnlineShop.dto.Category;
+import md.kniga.backendOnlineShop.dto.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,9 @@ public class PageController {
 
     @Autowired
     private CategoryDAO categoryDAO;
+
+    @Autowired
+    private ProductDAO productDAO;
 
     @RequestMapping(value = {"/", "home", "index"})
     public ModelAndView index()
@@ -85,6 +90,25 @@ public class PageController {
         //passing the single category object into the jsp
         mv.addObject("category", category);
         mv.addObject("userClickCategoryProducts", true);
+
+        return mv;
+    }
+
+    @RequestMapping(value = {"/show/{id}/product"})
+    public ModelAndView showSingleProduct(@PathVariable("id") int id)
+    {
+        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+
+        //productDAO to fetch a single product
+        Product product = productDAO.get(id);
+        Category category = categoryDAO.get(product.getCategoryID());
+        product.setViews(product.getViews() + 1);
+        productDAO.update(product);
+        mv.addObject("title", product.getName());
+        mv.addObject("product", product);
+        mv.addObject("category", category);
+        mv.addObject("userClickShowProduct", true);
 
         return mv;
     }

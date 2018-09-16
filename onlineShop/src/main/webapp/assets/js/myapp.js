@@ -64,6 +64,7 @@ $ (function () {
                 },
                 {
                     data: 'unitPrice',
+                    // &#8381; it is symbol for RUB (russian ruble)
                     mRender: function (data, type, row) {
                         return '&#8381; ' + data
                     }
@@ -73,8 +74,8 @@ $ (function () {
                     bSortable: false,
                     mRender: function (data, type, row) {
                         var str = '';
-                        str += '<a href="'+ window.contextRoot + '/show' + data + '/product" class="btn btn-info"><span class="fa fa-eye"></span></a> &#160';
-                        str += '<a href="'+ window.contextRoot + '/cart/add' + data + '/product" class="btn btn-success"><span class="fa fa-cart-plus"></a>';
+                        str += '<a href="'+ window.contextRoot + '/show/' + data + '/product" class="btn btn-info"><span class="fa fa-eye"></span></a> &#160';
+                        str += '<a href="'+ window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-success"><span class="fa fa-cart-plus"></span></a>';
                         return str;
                     }
                 }
@@ -82,7 +83,4 @@ $ (function () {
 
         });
     }
-
-
-
 });

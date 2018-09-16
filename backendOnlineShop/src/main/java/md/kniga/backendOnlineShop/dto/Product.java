@@ -35,7 +35,7 @@ public class Product {
     private boolean active;
 
     @Column(name = "category_id", nullable = false)
-    private String categoryID;
+    private int categoryID;
 
     private int purchases;
 
@@ -94,7 +94,7 @@ public class Product {
         return views;
     }
 
-    public String getCategoryID() {
+    public int getCategoryID() {
         return categoryID;
     }
 
@@ -102,7 +102,7 @@ public class Product {
         this.id = id;
     }
 
-    public void setCategoryID(String categoryID) {
+    public void setCategoryID(int categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -163,6 +163,7 @@ public class Product {
                 ", weight='" + weight + '\'' +
                 ", unitPrice='" + unitPrice + '\'' +
                 ", active=" + active +
+                ", categoryID=" + categoryID +
                 ", purchases=" + purchases +
                 ", views=" + views +
                 '}';
