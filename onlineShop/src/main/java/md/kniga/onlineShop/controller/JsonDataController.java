@@ -1,4 +1,4 @@
-package md.kniga.onlineShop.Controller;
+package md.kniga.onlineShop.controller;
 
 import md.kniga.backendOnlineShop.dao.ProductDAO;
 import md.kniga.backendOnlineShop.dto.Product;

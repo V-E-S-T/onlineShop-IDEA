@@ -1,9 +1,11 @@
-package md.kniga.onlineShop.Controller;
+package md.kniga.onlineShop.controller;
 
 import md.kniga.backendOnlineShop.dao.CategoryDAO;
 import md.kniga.backendOnlineShop.dao.ProductDAO;
 import md.kniga.backendOnlineShop.dto.Category;
 import md.kniga.backendOnlineShop.dto.Product;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
+
+    private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 
     @Autowired
     private CategoryDAO categoryDAO;
@@ -24,6 +28,9 @@ public class PageController {
     {
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
                                                                  // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        logger.info("Inside PageController method index() - INFO");
+        logger.debug("Inside PageController method index() - DEBUG");
+
         mv.addObject("title", "Home");
         mv.addObject("categories", categoryDAO.listAll());
         mv.addObject("userClickHome", true);
