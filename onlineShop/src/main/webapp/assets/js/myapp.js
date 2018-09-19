@@ -12,6 +12,9 @@ $ (function () {
         case'All products':
             $('#listProducts').addClass('active');   //#listProducts - is a selector id=listProducts from navbar.jsp
             break;
+        case'Manage Products':
+            $('#manageProducts').addClass('active');   //#listProducts - is a selector id=listProducts from navbar.jsp
+            break;
         default:
             if (menubar == "Home") break;
             $('#listProducts').addClass('active');   //#listProducts - is a selector id=listProducts from navbar.jsp
