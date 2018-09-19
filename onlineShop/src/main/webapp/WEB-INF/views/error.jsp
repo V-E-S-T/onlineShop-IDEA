@@ -30,19 +30,19 @@
     </script>
 
     <!-- Bootstrap core CSS -->
-    <link href="${contextRoot}/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="${css}/bootstrap.css" rel="stylesheet">
 
     <!-- fontAwesome icons -->
-    <link href="${contextRoot}/assets/css/fontawesome.css" rel="stylesheet">
+    <link href="${css}/fontawesome.css" rel="stylesheet">
 
     <!-- Bootstrap Readable Theme -->
-    <link href="${contextRoot}/assets/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="${css}/bootstrap-theme.css" rel="stylesheet">
 
     <%--<!-- DataTable -->--%>
-    <link href="${contextRoot}/assets/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="${contextRoot}/assets/css/shop-homepage.css" rel="stylesheet">
+    <link href="${css}/shop-homepage.css" rel="stylesheet">
 
 </head>
 
