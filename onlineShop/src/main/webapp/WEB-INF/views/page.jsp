@@ -33,23 +33,23 @@
         <link href="${css}/bootstrap.css" rel="stylesheet">
 
         <!-- fontAwesome icons -->
-        <link href="$${css}/fontawesome.css" rel="stylesheet">
+        <link href="${css}/fontawesome.css" rel="stylesheet">
 
         <!-- Bootstrap readable theme -->
         <%--<link href="${contextRoot}/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
 
         <!-- Bootstrap Readable Theme -->
-        <link href="$${css}/bootstrap-theme.css" rel="stylesheet">
+        <link href="${css}/bootstrap-theme.css" rel="stylesheet">
 
         <%--<!-- Bootstrap Readable Theme ->--%>
         <%--<link href="${contextRoot}/assets/css/_bootswatch.scss" rel="stylesheet">--%>
         <%--<link href="${contextRoot}/assets/css/_variables.scss" rel="stylesheet">--%>
 
         <%--<!-- DataTable -->--%>
-        <link href="$${css}/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="$${css}/shop-homepage.css" rel="stylesheet">
+        <link href="${css}/shop-homepage.css" rel="stylesheet">
 
     </head>
 
@@ -84,6 +84,11 @@
             <c:if test="${userClickShowProduct == true}">
                 <%@include file="singleProduct.jsp"%>
             </c:if>
+            <%--Load only when user click manage products--%>
+            <c:if test="${userClickManageProduct == true}">
+                <%@include file="manageProducts.jsp"%>
+            </c:if>
+
         </div>
 
         <!-- Footer -->
@@ -92,19 +97,17 @@
         <!-- jQuery JavaScript -->
         <script src="${js}/jquery.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script src="${js}/bootstrap.js"></script>
+        <script src="${js}/js/bootstrap.js"></script>
         <%--<script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>--%>
         <!-- DataTable Plugin -->
         <script src="${js}/jquery.dataTables.js"></script>
 
         <!-- DataTable Bootstrap JavaScript -->
-        <script src="$${js}/dataTables.bootstrap4.js"></script>
+        <script src="${js}/dataTables.bootstrap4.js"></script>
 
 
         <!-- Self coded JavaScript -->
         <script src="${js}/myapp.js"></script>
-
-
 
     </div>
 

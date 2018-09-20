@@ -4,6 +4,7 @@ import md.kniga.backendOnlineShop.dao.CategoryDAO;
 import md.kniga.backendOnlineShop.dao.ProductDAO;
 import md.kniga.backendOnlineShop.dto.Category;
 import md.kniga.backendOnlineShop.dto.Product;
+import md.kniga.onlineShop.exception.ProductNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,13 +103,17 @@ public class PageController {
     }
 
     @RequestMapping(value = {"/show/{id}/product"})
-    public ModelAndView showSingleProduct(@PathVariable("id") int id)
+    public ModelAndView showSingleProduct(@PathVariable("id") int id) throws ProductNotFoundException
     {
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
 
         //productDAO to fetch a single product
         Product product = productDAO.get(id);
+
+        //if product is not found, new ProductNotFoundException will be thrown
+        if (product == null){throw new ProductNotFoundException();}
+
         Category category = categoryDAO.get(product.getCategoryID());
         product.setViews(product.getViews() + 1);
         productDAO.update(product);
