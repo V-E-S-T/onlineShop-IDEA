@@ -30,26 +30,26 @@
         </script>
 
         <!-- Bootstrap core CSS -->
-        <link href="${contextRoot}/assets/css/bootstrap.css" rel="stylesheet">
+        <link href="${css}/bootstrap.css" rel="stylesheet">
 
         <!-- fontAwesome icons -->
-        <link href="${contextRoot}/assets/css/fontawesome.css" rel="stylesheet">
+        <link href="$${css}/fontawesome.css" rel="stylesheet">
 
         <!-- Bootstrap readable theme -->
         <%--<link href="${contextRoot}/assets/css/bootstrap-readable-theme.css" rel="stylesheet">--%>
 
         <!-- Bootstrap Readable Theme -->
-        <link href="${contextRoot}/assets/css/bootstrap-theme.css" rel="stylesheet">
+        <link href="$${css}/bootstrap-theme.css" rel="stylesheet">
 
         <%--<!-- Bootstrap Readable Theme ->--%>
         <%--<link href="${contextRoot}/assets/css/_bootswatch.scss" rel="stylesheet">--%>
         <%--<link href="${contextRoot}/assets/css/_variables.scss" rel="stylesheet">--%>
 
         <%--<!-- DataTable -->--%>
-        <link href="${contextRoot}/assets/css/dataTables.bootstrap.css" rel="stylesheet">
+        <link href="$${css}/dataTables.bootstrap.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <link href="${contextRoot}/assets/css/shop-homepage.css" rel="stylesheet">
+        <link href="$${css}/shop-homepage.css" rel="stylesheet">
 
     </head>
 
@@ -90,19 +90,21 @@
         <%@include file="./shared/footer.jsp"%>
 
         <!-- jQuery JavaScript -->
-        <script src="${contextRoot}/assets/js/jquery.js"></script>
+        <script src="${js}/jquery.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script src="${contextRoot}/assets/js/bootstrap.js"></script>
+        <script src="${js}/bootstrap.js"></script>
         <%--<script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>--%>
         <!-- DataTable Plugin -->
-        <script src="${contextRoot}/assets/js/jquery.dataTables.js"></script>
+        <script src="${js}/jquery.dataTables.js"></script>
 
         <!-- DataTable Bootstrap JavaScript -->
-        <script src="${contextRoot}/assets/js/dataTables.bootstrap4.js"></script>
+        <script src="$${js}/dataTables.bootstrap4.js"></script>
 
 
         <!-- Self coded JavaScript -->
-        <script src="${contextRoot}/assets/js/myapp.js"></script>
+        <script src="${js}/myapp.js"></script>
+
+
 
     </div>
 
