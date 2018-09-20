@@ -1,5 +1,6 @@
 package md.kniga.onlineShop.controller;
 
+import md.kniga.backendOnlineShop.dto.Product;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,11 @@ public class ManageController {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("userClickManageProduct", true);
         mv.addObject("title", "Manage Products");
+        Product newProduct = new Product();
+        newProduct.setActive(true);
+        mv.addObject("newProduct", newProduct);
+
+
         return mv;
     }
 
