@@ -70,6 +70,19 @@
           <!--</exclusions>-->
       </dependency>
 
+      <!-- Hibernate Validator -->
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-validator</artifactId>
+          <version>6.0.5.Final</version>
+      </dependency>
+
+      <dependency>
+          <groupId>javax.validation</groupId>
+          <artifactId>validation-api</artifactId>
+          <version>2.0.1.Final</version>
+      </dependency>
+
       <!--Database connection pooling DEPENDENCY needed for manage database connection pool -->
 
       <dependency>

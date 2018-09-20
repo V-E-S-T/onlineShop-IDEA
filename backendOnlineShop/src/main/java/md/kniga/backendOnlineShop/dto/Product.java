@@ -1,6 +1,8 @@
 package md.kniga.backendOnlineShop.dto;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 @Entity
@@ -14,22 +16,28 @@ public class Product {
     @Column(name = "code", nullable = false)
     private String code;
 
+    @NotBlank(message = "Please enter the product name!")
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
+    @NotBlank(message = "Please enter the product brand!")
     private String brand;
 
+    @NotBlank(message = "Please enter the product description!")
     private String description;
 
     @Column(name = "image_url")
     private String imageUrl;
 
+    @NotBlank(message = "Please enter the product size!")
     private String size;
 
+    @NotBlank(message = "Please enter the product weight!")
     private String weight;
 
+    @Min(value = 1, message="The price can not be less than 1!")
     @Column(name = "unit_price", nullable = false)
-    private String unitPrice;
+    private double unitPrice;
 
     @Column(name = "active")
     private boolean active;
@@ -78,7 +86,7 @@ public class Product {
         return weight;
     }
 
-    public String getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
@@ -134,7 +142,7 @@ public class Product {
         this.weight = weight;
     }
 
-    public void setUnitPrice(String unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
 
