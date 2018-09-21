@@ -8,17 +8,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
-
-
-
-//TODO add @Valid annotation for making validation
 
 @Controller
 @RequestMapping("/manage")
@@ -52,7 +51,16 @@ public class ManageController {
 
     //handling product submission
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public String handleProductSubmission(@ModelAttribute("product") Product modifiedProduct){
+    public String handleProductSubmission(@Valid @ModelAttribute("newProduct") Product modifiedProduct, BindingResult bindingResult, Model model){
+
+        //check if there are any errors
+
+        if(bindingResult.hasErrors()){
+            model.addAttribute("userClickManageProduct",true);
+            model.addAttribute("title", "Manage Products");
+
+            return "page";
+        }
 
         logger.info(modifiedProduct.toString());
 

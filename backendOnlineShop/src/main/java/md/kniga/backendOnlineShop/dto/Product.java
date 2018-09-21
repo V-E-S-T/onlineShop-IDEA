@@ -2,7 +2,7 @@ package md.kniga.backendOnlineShop.dto;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotBlank;
 import java.util.UUID;
 
 @Entity

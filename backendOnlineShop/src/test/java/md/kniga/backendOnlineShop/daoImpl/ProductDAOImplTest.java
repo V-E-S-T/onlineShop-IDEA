@@ -71,7 +71,7 @@ public class ProductDAOImplTest {
         product.setImageUrl("IMAGE_URL_1.png");
         product.setName("Book about anything");
         product.setSize("25x25x4mm");
-        product.setUnitPrice("600");
+        product.setUnitPrice(600);
         product.setWeight("300g");
         product.setActive(true);
         product.setActive(true);
