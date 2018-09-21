@@ -3,6 +3,8 @@ package md.kniga.backendOnlineShop.dto;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.util.UUID;
 
 @Entity
@@ -48,6 +50,17 @@ public class Product {
     private int purchases;
 
     private int views;
+
+    @Transient
+    private MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     //default constructor
     public Product(){

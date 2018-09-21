@@ -42,7 +42,7 @@ public class ManageController {
 
         if (operation!=null){
             if(operation.equals("product")){
-                mv.addObject("message", "Product Submitted successfully!");
+                mv.addObject("successMessage", "Product Submitted successfully!");
             }
         }
 
@@ -58,6 +58,7 @@ public class ManageController {
         if(bindingResult.hasErrors()){
             model.addAttribute("userClickManageProduct",true);
             model.addAttribute("title", "Manage Products");
+            model.addAttribute("failedMessage", "Validation failed for product Submission!");
 
             return "page";
         }

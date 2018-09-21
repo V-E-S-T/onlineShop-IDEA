@@ -2,12 +2,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="container">
     <div class="row">
-        <c:if test="${not empty message}">
+        <c:if test="${not empty successMessage}">
 
             <div class="col-12">
                 <div class="alert alert-success alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    ${message}
+                    ${successMessage}
+                </div>
+            </div>
+
+        </c:if>
+        <c:if test="${not empty failedMessage}">
+
+            <div class="col-12">
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        ${failedMessage}
                 </div>
             </div>
 
@@ -21,7 +31,7 @@
 
                 <div class="card-body">
                     <%--FORm ELEMENTS--%>
-                    <sf:form modelAttribute="newProduct" action="${contextRoot}/manage/products" method="POST">
+                    <sf:form modelAttribute="newProduct" action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="name" class="col-form-label col-md-2 text-xl-left text-primary">Name</label>
                             <div class="col-md-10">
@@ -64,11 +74,12 @@
                                 <%--<em class="help-block">Please enter Product Weight in grams!</em>--%>
                             </div>
                         </div>
+                        <%--File element for image uppload--%>
                         <div class="form-group row">
-                            <label for="price" class="col-form-label col-md-2 text-xl-left text-primary">Price</label>
+                            <label for="file" class="col-form-label col-md-2 text-xl-left text-primary">Select an image: </label>
                             <div class="col-md-10">
-                                <sf:input path="unitPrice" type="number" class="form-control" id="price" name="price" placeholder="Product price in &#8381;"/>
-                                <sf:errors path="unitPrice" cssClass="help-block" element="em"/>
+                                <sf:input path="file" type="file" class="form-control" id="file" name="file" placeholder="Product price in &#8381;"/>
+                                <%--<sf:errors path="unitPrice" cssClass="help-block" element="em"/>--%>
                                 <%--<em class="help-block">Please enter Product price!</em>--%>
                             </div>
                         </div>
@@ -82,6 +93,15 @@
                         <%--<em class="help-block">Please enter Available Quantity!</em>--%>
                         <%--</div>--%>
                         <%--</div>--%>
+
+                        <div class="form-group row">
+                            <label for="price" class="col-form-label col-md-2 text-xl-left text-primary">Price</label>
+                            <div class="col-md-10">
+                                <sf:input path="unitPrice" type="number" class="form-control" id="price" name="price" placeholder="Product price in &#8381;"/>
+                                <sf:errors path="unitPrice" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product price!</em>--%>
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="categoryId" class="col-form-label col-md-2 text-xl-left text-primary">Select Category</label>
