@@ -78,7 +78,7 @@
                         <div class="form-group row">
                             <label for="file" class="col-form-label col-md-2 text-xl-left text-primary">Select an image: </label>
                             <div class="col-md-10">
-                                <sf:input path="file" type="file" class="form-control" id="file" name="file" placeholder="Product price in &#8381;"/>
+                                <sf:input path="file" type="file" class="form-control"/>
                                 <sf:errors path="file" cssClass="help-block" element="em"/>
                                 <%--<em class="help-block">Please enter Product price!</em>--%>
                             </div>
@@ -135,18 +135,20 @@
     </div>
 
     <div class="row">
-        <div class='col-xs-12'>
+        <div class="col-12">
             <hr/>
             <h1>Available Products</h1>
             <hr/>
         </div>
-        <div class='col-xs-12'>
-            <div stile="overflow:auto">
+        <div class="col-12">
+
+            <%--stile="overflow:auto"--%>
+            <%--<div >--%>
 
                 <%--Products table for admin--%>
 
 
-            <table id="adminProductsTable" class="table table-condensed table-bordered">
+            <table id="adminProductsTable" class="table table-condensed table-bordered" style="overflow:auto">
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -183,7 +185,7 @@
                 </td>
                 <td>
                     <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-                        <span class="fa-pencil-alt"></span>
+                        <span class="fas fa-pencil-alt"></span>
                     </a>
                 </td>
             </tr>
@@ -209,7 +211,7 @@
                 </td>
                 <td>
                     <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-                        <span class="fa-pencil-alt"></span>
+                        <span class="fas fa-pencil-alt"></span>
                     </a>
                 </td>
             </tr>
