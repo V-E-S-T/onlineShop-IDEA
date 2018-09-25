@@ -79,7 +79,7 @@
                             <label for="file" class="col-form-label col-md-2 text-xl-left text-primary">Select an image: </label>
                             <div class="col-md-10">
                                 <sf:input path="file" type="file" class="form-control" id="file" name="file" placeholder="Product price in &#8381;"/>
-                                <%--<sf:errors path="unitPrice" cssClass="help-block" element="em"/>--%>
+                                <sf:errors path="file" cssClass="help-block" element="em"/>
                                 <%--<em class="help-block">Please enter Product price!</em>--%>
                             </div>
                         </div>
@@ -131,8 +131,107 @@
 
             </div>
         </div>
+
     </div>
 
+    <div class="row">
+        <div class='col-xs-12'>
+            <hr/>
+            <h1>Available Products</h1>
+            <hr/>
+        </div>
+        <div class='col-xs-12'>
+            <div stile="overflow:auto">
 
+                <%--Products table for admin--%>
+
+
+            <table id="adminProductsTable" class="table table-condensed table-bordered">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>&#160;</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th>Weight</th>
+                    <%--<th>Qty. Avail</th>--%>
+                    <th>Unit Price</th>
+                    <th>Activate</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+
+                <tbody>
+            <tr>
+                <td>68</td>
+                <td>
+                    <img class="adminDataTableImg" src="${contextRoot}/resources/images/PRD4E3E7FE380.jpg" alt="${contextRoot}/resources/images/no_image_available.jpg">
+                </td>
+                <td>test product</td>
+                <td>test brand</td>
+                <td>test description</td>
+                <td>56*65</td>
+                <td>652 &#8381;</td>
+                <td>456.00</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" checked="checked" value="4"/>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td>
+                    <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
+                        <span class="fa-pencil-alt"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+
+            <tbody>
+            <tr>
+                <td>68</td>
+                <td>
+                    <img class="adminDataTableImg" src="${contextRoot}/resources/images/PRD4E3E7FE380.jpg" alt="${contextRoot}/resources/images/no_image_available.jpg">
+                </td>
+                <td>test product</td>
+                <td>test brand</td>
+                <td>test description</td>
+                <td>56*65</td>
+                <td>652 &#8381;</td>
+                <td>456.00</td>
+                <td>
+                    <label class="switch">
+                        <input type="checkbox" value="4"/>
+                        <span class="slider round"></span>
+                    </label>
+                </td>
+                <td>
+                    <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
+                        <span class="fa-pencil-alt"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+
+                <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>&#160;</th>
+                    <th>Name</th>
+                    <th>Brand</th>
+                    <th>Description</th>
+                    <th>Size</th>
+                    <th>Weight</th>
+                    <%--<th>Qty. Avail</th>--%>
+                    <th>Unit Price</th>
+                    <th>Activate</th>
+                    <th>Edit</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
 
 </div>

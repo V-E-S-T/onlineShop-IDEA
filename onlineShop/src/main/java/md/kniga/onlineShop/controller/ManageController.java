@@ -4,6 +4,7 @@ import md.kniga.backendOnlineShop.dao.CategoryDAO;
 import md.kniga.backendOnlineShop.dao.ProductDAO;
 import md.kniga.backendOnlineShop.dto.Category;
 import md.kniga.backendOnlineShop.dto.Product;
+import md.kniga.onlineShop.util.FileUploadUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import validator.ProductValidator;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
 
@@ -51,7 +54,10 @@ public class ManageController {
 
     //handling product submission
     @RequestMapping(value = "/products", method = RequestMethod.POST)
-    public String handleProductSubmission(@Valid @ModelAttribute("newProduct") Product modifiedProduct, BindingResult bindingResult, Model model){
+    public String handleProductSubmission(@Valid @ModelAttribute("newProduct") Product modifiedProduct, BindingResult bindingResult, Model model,
+                                          HttpServletRequest request){
+
+        new ProductValidator().validate(modifiedProduct, bindingResult);
 
         //check if there are any errors
 
@@ -66,6 +72,10 @@ public class ManageController {
         logger.info(modifiedProduct.toString());
 
         productDAO.add(modifiedProduct);
+
+        if(!modifiedProduct.getFile().getOriginalFilename().equals("")){
+            FileUploadUtility.uploadFile(request, modifiedProduct.getFile(), modifiedProduct.getCode());
+        }
 
         return "redirect:/manage/products?operation=product";
     }
