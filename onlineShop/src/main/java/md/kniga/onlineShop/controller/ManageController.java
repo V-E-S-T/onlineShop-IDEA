@@ -54,7 +54,15 @@ public class ManageController {
     public String handleProductSubmission(@Valid @ModelAttribute("newProduct") Product modifiedProduct, BindingResult bindingResult, Model model,
                                           HttpServletRequest request){
 
-        new ProductValidator().validate(modifiedProduct, bindingResult);
+        if(modifiedProduct.getId() == 0){
+            new ProductValidator().validate(modifiedProduct, bindingResult);
+        }
+        else {
+            if(modifiedProduct.getFile().getOriginalFilename().equals("")){
+                new ProductValidator().validate(modifiedProduct, bindingResult);
+            }
+        }
+
 
         //check if there are any errors
 
@@ -68,7 +76,13 @@ public class ManageController {
 
         logger.info(modifiedProduct.toString());
 
-        productDAO.add(modifiedProduct);
+        if(modifiedProduct.getId() == 0){
+            productDAO.add(modifiedProduct);
+        }
+        else{
+            productDAO.update(modifiedProduct);
+        }
+
 
         if(!modifiedProduct.getFile().getOriginalFilename().equals("")){
             FileUploadUtility.uploadFile(request, modifiedProduct.getFile(), modifiedProduct.getCode());
@@ -92,6 +106,18 @@ public class ManageController {
 
         return activityStatus ? "You have successfully deactivate product with id: " + id :
                                 "You have successfully activate product with id: " + id;
+    }
+
+    //handling product updating form
+    @RequestMapping(value = "/{id}/product", method = RequestMethod.GET)
+    public ModelAndView showEditProduct(@PathVariable int id){
+
+        ModelAndView mv = new ModelAndView("page");
+        mv.addObject("userClickManageProduct", true);
+        mv.addObject("title", "Manage Products");
+        Product updateProduct = productDAO.get(id);
+        mv.addObject("newProduct", updateProduct);
+        return mv;
     }
 
     @ModelAttribute("categories")
