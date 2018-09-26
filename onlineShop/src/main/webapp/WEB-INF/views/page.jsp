@@ -97,7 +97,7 @@
         <!-- jQuery JavaScript -->
         <script src="${js}/jquery.js"></script>
         <!-- Bootstrap core JavaScript -->
-        <script src="${js}/js/bootstrap.js"></script>
+        <script src="${js}/bootstrap.js"></script>
         <%--<script src="${contextRoot}/assets/js/bootstrap.bundle.js"></script>--%>
         <!-- DataTable Plugin -->
         <script src="${js}/jquery.dataTables.js"></script>

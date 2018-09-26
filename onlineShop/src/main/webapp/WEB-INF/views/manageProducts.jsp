@@ -165,58 +165,6 @@
                 </tr>
                 </thead>
 
-                <tbody>
-            <tr>
-                <td>68</td>
-                <td>
-                    <img class="adminDataTableImg" src="${contextRoot}/resources/images/PRD4E3E7FE380.jpg" alt="${contextRoot}/resources/images/no_image_available.jpg">
-                </td>
-                <td>test product</td>
-                <td>test brand</td>
-                <td>test description</td>
-                <td>56*65</td>
-                <td>652 &#8381;</td>
-                <td>456.00</td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox" checked="checked" value="4"/>
-                        <span class="slider round"></span>
-                    </label>
-                </td>
-                <td>
-                    <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-                        <span class="fas fa-pencil-alt"></span>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-
-            <tbody>
-            <tr>
-                <td>68</td>
-                <td>
-                    <img class="adminDataTableImg" src="${contextRoot}/resources/images/PRD4E3E7FE380.jpg" alt="${contextRoot}/resources/images/no_image_available.jpg">
-                </td>
-                <td>test product</td>
-                <td>test brand</td>
-                <td>test description</td>
-                <td>56*65</td>
-                <td>652 &#8381;</td>
-                <td>456.00</td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox" value="4"/>
-                        <span class="slider round"></span>
-                    </label>
-                </td>
-                <td>
-                    <a href="${contextRoot}/manage/4/product" class="btn btn-warning">
-                        <span class="fas fa-pencil-alt"></span>
-                    </a>
-                </td>
-            </tr>
-            </tbody>
-
                 <tfoot>
                 <tr>
                     <th>Id</th>

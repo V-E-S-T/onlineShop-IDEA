@@ -11,10 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import validator.ProductValidator;
 
@@ -78,6 +75,23 @@ public class ManageController {
         }
 
         return "redirect:/manage/products?operation=product";
+    }
+
+    //handling product submission
+    @RequestMapping(value = "/products/{id}/activation", method = RequestMethod.GET)
+    public String handleProductActivation(@PathVariable int id){
+
+        //fetching the product from the database
+        Product product = productDAO.get(id);
+
+        boolean activityStatus = product.isActive();
+
+        product.setActive(!activityStatus);
+
+        productDAO.update(product);
+
+        return activityStatus ? "You have successfully deactivate product with id: " + id :
+                                "You have successfully activate product with id: " + id;
     }
 
     @ModelAttribute("categories")
