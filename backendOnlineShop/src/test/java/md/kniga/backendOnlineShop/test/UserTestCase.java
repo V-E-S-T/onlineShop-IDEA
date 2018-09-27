@@ -84,10 +84,12 @@ public class UserTestCase {
         user.setPassword("pass");
         user.setRole("user");
 
+        userDAO.add(user);
+
         cart = new Cart();
         cart.setCartLines(0);
         cart.setGrandTotal(0);
-        cart.setUserId(1);
+        cart.setUser(user);
 
         assertEquals("Successfully added a cart inside the database", true, userDAO.addCart(cart));
     }
