@@ -78,7 +78,7 @@
                         <div class="form-group row">
                             <label for="file" class="col-form-label col-md-2 text-xl-left text-primary">Select an image: </label>
                             <div class="col-md-10">
-                                <sf:input path="file" type="file" class="form-control"/>
+                                <sf:input path="file" type="file" class="form-control-plaintext"/>
                                 <sf:errors path="file" cssClass="help-block" element="em"/>
                                 <%--<em class="help-block">Please enter Product price!</em>--%>
                             </div>
@@ -109,7 +109,21 @@
                                 <%--items="${categories}" we take from ManageController @ModelAttribute("categories")--%>
                                 <%--itemLabel="name" it is the field from Categoty class, which will be displayed inside select button--%>
                                 <%--itemValue="id" it is the field from Categoty class, which corresponded with path="categoryID"--%>
-                                <sf:select path="categoryID" class="form-control" id="categoryId" items="${categories}" itemLabel="name" itemValue="id"/>
+                                <sf:select path="categoryID" class="form-control" id="categoryId"
+                                           items="${categories}"
+                                           itemLabel="name"
+                                           itemValue="id"
+                                />
+
+                                <c:if test="${newProduct.id == 0}">
+
+                                    <div class="text-right">
+
+                                        <br/>
+                                        <button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-primary btn-sm">Add Category</button>
+                                    </div>
+
+                                </c:if>
 
                             </div>
                         </div>
@@ -181,6 +195,55 @@
                 </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+
+    <div class="modal" id="myCategoryModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <%--Modal header--%>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <span>&times;</span>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <%--Category Form--%>
+                    <sf:form modelAttribute="category" action="${contextRoot}/manage/category" method="POST" cssClass="form-group" id="categoryForm">
+                        <div class="row">
+
+                            <label for="category_name" class="col-form-label col-md-4 text-xl-left text-primary">Category Name</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:input path="name" type="text" class="form-control" id="category_name" name="category_name" placeholder="Category Name"/>
+                                <sf:errors path="name" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product Name!</em>--%>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="category_description" class="col-form-label col-md-4 text-xl-left text-primary">Category Description</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:textarea path="description" cols="" rows="5" class="form-control" id="category_description" name="category_description" placeholder="Category Description"/>
+                                <sf:errors path="description" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product Name!</em>--%>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-form-label col-md-10">
+
+                                <input type="submit" class="btn btn-outline-primary btn-lg" id="submit" name="submit" value="Submit">
+                            </div>
+                        </div>
+
+                    </sf:form>
+                </div>
+
+            </div>
+
         </div>
     </div>
 

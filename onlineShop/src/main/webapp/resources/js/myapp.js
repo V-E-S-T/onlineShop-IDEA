@@ -306,5 +306,40 @@ $ (function () {
     }
     //------------------------------------------------------------
 
+    //validation code for category
+
+    var $categoryForm = $('#categoryForm');
+
+    if ($categoryForm.length){
+
+        $categoryForm.validate({
+
+            rules: {
+                name:{
+                    required: true,
+                    minLength: 2
+                },
+                description: {
+                    required: true
+                }
+            },
+            messages:{
+                name: {
+                    required: 'Please add the Category Name',
+                    minLength: 'The Category Name should not be less than ' + this.minLength +  ' characters'
+                },
+                description:{
+                    required: 'Please add the Category Description'
+                }
+            },
+            errorElement: 'em',
+            errorPlacement: function(error, element){
+                error.addClass('help-block');
+                error.insertAfter(element);
+            }
+        });
+    }
+    //-----------------------------------------
+
 
 });

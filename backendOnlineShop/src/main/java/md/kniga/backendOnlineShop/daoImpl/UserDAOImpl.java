@@ -1,6 +1,8 @@
 package md.kniga.backendOnlineShop.daoImpl;
 
 import md.kniga.backendOnlineShop.dao.UserDAO;
+import md.kniga.backendOnlineShop.dto.Address;
+import md.kniga.backendOnlineShop.dto.Cart;
 import md.kniga.backendOnlineShop.dto.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -13,8 +15,6 @@ import java.util.List;
 @Repository("userDAO")
 @Transactional
 public class UserDAOImpl implements UserDAO{
-
-
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -82,6 +82,32 @@ public class UserDAOImpl implements UserDAO{
         try{
             //add the category to the database
             sessionFactory.getCurrentSession().persist(user);
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addAddress(Address address) {
+
+        try{
+            sessionFactory.getCurrentSession().persist(address);
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    @Override
+    public boolean addCart(Cart cart) {
+
+        try{
+            sessionFactory.getCurrentSession().persist(cart);
             return true;
         }
         catch (Exception e){
