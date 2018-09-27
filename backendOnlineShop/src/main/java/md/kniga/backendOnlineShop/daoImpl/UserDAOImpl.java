@@ -65,9 +65,15 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public User getByEmail(String email) {
 
-        Query<User> query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE email=:email", User.class);
-        query.setParameter("email", email);
-        return query.getSingleResult();
+        try{
+            Query<User> query = sessionFactory.getCurrentSession().createQuery("FROM User WHERE email=:email", User.class);
+            query.setParameter("email", email);
+            return query.getSingleResult();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @Override
@@ -104,15 +110,30 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public boolean addCart(Cart cart) {
+    public boolean updateCart(Cart cart) {
 
         try{
-            sessionFactory.getCurrentSession().persist(cart);
+            sessionFactory.getCurrentSession().update(cart);
             return true;
         }
         catch (Exception e){
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public Address getBillingAddress(User user) {
+
+        Query<Address> query = sessionFactory.getCurrentSession().createQuery("FROM Address WHERE user=:user HAVING isshippingadress = true", Address.class);
+        query.setParameter("user", user);
+        return query.getSingleResult();
+    }
+
+    @Override
+    public List<Address> listOfShippingAddress(User user) {
+        Query<Address> query = sessionFactory.getCurrentSession().createQuery("FROM Address WHERE user=:user", Address.class);
+        query.setParameter("user", user);
+        return query.getResultList();
     }
 }

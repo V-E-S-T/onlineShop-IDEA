@@ -31,6 +31,17 @@ public class User {
     @Column(name = "active")
     private boolean active;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL) //user parameter tacked from Cart field user
+    Cart cart;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
     public int getId() {
         return id;
     }

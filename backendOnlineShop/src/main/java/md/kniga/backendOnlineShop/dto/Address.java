@@ -9,8 +9,11 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "user_id")
-    private int userId;
+    @ManyToMany
+    private User user;
+
+//    @Column(name = "user_id")
+//    private int userId;
 
     @Column(name = "adress_line_one")
     private String adressLineOne;
@@ -32,6 +35,14 @@ public class Address {
 
     private boolean isShippingAdress;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public int getId() {
         return id;
     }
@@ -40,13 +51,13 @@ public class Address {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
     public String getAdressLineOne() {
         return adressLineOne;
@@ -108,7 +119,7 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "id=" + id +
-                ", userId=" + userId +
+                //", userId=" + userId +
                 ", adressLineOne='" + adressLineOne + '\'' +
                 ", adressLineTwo='" + adressLineTwo + '\'' +
                 ", sity='" + sity + '\'' +
