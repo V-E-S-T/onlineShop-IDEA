@@ -110,6 +110,37 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
+    public Address getBillingAddress(User user) {
+
+        try{
+            Query<Address> query = sessionFactory.getCurrentSession().createQuery("FROM Address WHERE user=:user AND isbillingaddress=:isbillingaddress", Address.class);
+            query.setParameter("user", user);
+            query.setParameter("isbillingaddress", true);
+
+            return query.getSingleResult();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Address> listShippingAddresses(User user) {
+        try{
+            Query<Address> query = sessionFactory.getCurrentSession().createQuery("FROM Address WHERE user=:user AND isbillingaddress=:isbillingaddress", Address.class);
+            query.setParameter("user", user);
+            query.setParameter("isbillingaddress", false);
+
+            return query.getResultList();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public boolean updateCart(Cart cart) {
 
         try{

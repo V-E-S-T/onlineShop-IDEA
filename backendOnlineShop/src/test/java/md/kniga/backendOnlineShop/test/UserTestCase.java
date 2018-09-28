@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class UserTestCase {
@@ -84,14 +86,62 @@ public class UserTestCase {
         address.setAdressLineTwo("apt 13");
         address.setCountry("Moldova");
         address.setPostalCode("MD-3300");
-        address.setShippingAdress(true);
+        address.setBillingAddress(true);
         address.setSity("Tiraspol");
         address.setState("Tiraspol");
 
-        address.setUserId(user.getId());
-
+        address.setUser(user);
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
+        address = new Address();
+        address.setAdressLineOne("22 Karl");
+        address.setAdressLineTwo("apt 23");
+        address.setCountry("Moldova");
+        address.setPostalCode("MD-3300");
+        address.setBillingAddress(false);
+        address.setSity("Tiraspol");
+
+        address.setUser(user);
+        assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
+
+        address = new Address();
+        address.setAdressLineOne("32 Karl");
+        address.setAdressLineTwo("apt 33");
+        address.setCountry("Moldova");
+        address.setPostalCode("MD-3300");
+        address.setBillingAddress(false);
+        address.setSity("Tiraspol");
+        address.setState("Tiraspol");
+
+        address.setUser(user);
+        assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
+
+        //HibernateConfig properties.put("hibernate.hbm2ddl.auto", "create");
+
+    }
+
+    @Test
+    public void testGetShippingAddresses(){
+
+        user = userDAO.getByEmail("Mmmmmmichael@gggggggmail.com");
+
+        List<Address> listAddresses = userDAO.listShippingAddresses(user);
+
+        assertEquals("Successfully fetched a single category inside the database", 2, listAddresses.size());
+
+        //HibernateConfig properties.put("hibernate.hbm2ddl.auto", "update");
+    }
+
+    @Test
+    public void testGetBillingAddress(){
+
+        user = userDAO.getByEmail("Mmmmmmichael@gggggggmail.com");
+
+        address = userDAO.getBillingAddress(user);
+
+        assertEquals("Successfully fetched a single category inside the database", "12 Karl", address.getAdressLineOne());
+
+        //HibernateConfig properties.put("hibernate.hbm2ddl.auto", "update");
     }
 
     @Test

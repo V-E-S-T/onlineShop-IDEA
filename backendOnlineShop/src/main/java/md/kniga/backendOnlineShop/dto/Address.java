@@ -9,12 +9,6 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToMany
-    private User user;
-
-//    @Column(name = "user_id")
-//    private int userId;
-
     @Column(name = "adress_line_one")
     private String adressLineOne;
 
@@ -33,7 +27,11 @@ public class Address {
     @Column(name = "postal_code")
     private String postalCode;
 
-    private boolean isShippingAdress;
+    @Column
+    private boolean isBillingAddress;
+
+    @ManyToOne
+    private User user;
 
     public User getUser() {
         return user;
@@ -50,14 +48,6 @@ public class Address {
     public void setId(int id) {
         this.id = id;
     }
-
-//    public int getUserId() {
-//        return userId;
-//    }
-//
-//    public void setUserId(int userId) {
-//        this.userId = userId;
-//    }
 
     public String getAdressLineOne() {
         return adressLineOne;
@@ -107,12 +97,12 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public boolean isShippingAdress() {
-        return isShippingAdress;
+    public boolean isBillingAddress() {
+        return isBillingAddress;
     }
 
-    public void setShippingAdress(boolean shippingAdress) {
-        isShippingAdress = shippingAdress;
+    public void setBillingAddress(boolean billingAddress) {
+        isBillingAddress = billingAddress;
     }
 
     @Override
@@ -126,7 +116,7 @@ public class Address {
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", postalCode='" + postalCode + '\'' +
-                ", isShippingAdress=" + isShippingAdress +
+                ", isBillingAddress=" + isBillingAddress +
                 '}';
     }
 }

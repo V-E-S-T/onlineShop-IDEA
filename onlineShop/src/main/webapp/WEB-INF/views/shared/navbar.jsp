@@ -25,6 +25,16 @@
                     <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
                 </li>
             </ul>
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="${contextRoot}/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${contextRoot}/register">Register</a>
+                </li>
+            </ul>
+
         </div>
     </div>
 </nav>
