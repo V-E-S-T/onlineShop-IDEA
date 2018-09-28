@@ -36,15 +36,33 @@ public class UserTestCase {
     public void testAddUser(){
 
         user = new User();
-        user.setFirst_name("Michael");
-        user.setLast_name("Vasiliev");
-        user.setEmail("Michael@mail.com");
+        user.setFirst_name("Mich");
+        user.setLast_name("Siliev");
+        user.setEmail("Mmmmmmichael@gggggggmail.com");
         user.setActive(true);
         user.setContact_number("56236599");
         user.setPassword("pass");
-        user.setRole("user");
+        user.setRole("admin");
 
-        assertEquals("Successfully added a category inside the database", true, userDAO.add(user));
+        cart = new Cart();
+        cart.setUser(user);
+
+        user.setCart(cart);
+
+        assertEquals("Successfully added an address inside the database", true, userDAO.add(user));
+    }
+
+    @Test
+    public void testUpdateCart(){
+
+        user = userDAO.getByEmail("Mmmmmmichael@gggggggmail.com");
+
+        cart = user.getCart();
+
+        cart.setGrandTotal(555);
+        cart.setCartLines(2);
+
+        assertEquals("Successfully added a cart inside the database", true, userDAO.updateCart(cart));
     }
 
     @Test
@@ -74,32 +92,6 @@ public class UserTestCase {
 
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
-        cart = new Cart();
-        cart.setUser(user);
-
-        assertEquals("Successfully added an address inside the database", true, userDAO.addCart(cart));
-    }
-
-    @Test
-    public void testAddCart(){
-
-        user = new User();
-        user.setFirst_name("Ichael");
-        user.setLast_name("Valiev");
-        user.setEmail("ichael@gggggggmail.com");
-        user.setActive(true);
-        user.setContact_number("56236599");
-        user.setPassword("pass");
-        user.setRole("user");
-
-        userDAO.add(user);
-
-        cart = new Cart();
-        cart.setCartLines(0);
-        cart.setGrandTotal(0);
-        cart.setUser(user);
-
-        assertEquals("Successfully added a cart inside the database", true, userDAO.updateCart(cart));
     }
 
     @Test
@@ -112,39 +104,8 @@ public class UserTestCase {
     @Test
     public void testGetByEmail(){
 
-        user = userDAO.getByEmail("ichael@gggggggmail.com");
-
-        cart = new Cart();
-        cart.setGrandTotal(526);
-        cart.setCartLines(2);
-        user.setCart(cart);
-
-
-        //assertEquals("Successfully fetched a single category inside the database", 526, userDAO.);
-        //userDAO.updateCart(cart);
-        assertEquals("Successfully fetched a single category inside the database", true, userDAO.updateCart(cart));
-//        user = new User();
-//        user.setFirst_name("Mike");
-//        user.setLast_name("Valiev");
-//        user.setEmail("ichael@gggggggmail.com");
-//        user.setActive(true);
-//        user.setContact_number("56236599");
-//        user.setPassword("pass");
-//        user.setRole("user");
-//
-//        userDAO.add(user);
-//
-//
-//        cart = new Cart();
-//        cart.setCartLines(0);
-//        cart.setGrandTotal(0);
-//        cart.setUser(user);
-//
-//        userDAO.updateCart(cart);
-//
-//        //user = userDAO.getByEmail("ichael@gggggggmail.com");
-//        assertEquals("Successfully fetched a single category inside the database", "Mike", user.getFirst_name());
-//       // assertEquals("Successfully fetched a single category inside the database", "ichael@gggggggmail.com", user.getCart().getUser().getEmail());
+        user = userDAO.getByEmail("Mike@email.com");
+        assertEquals("Successfully fetched a single category inside the database", "Mike", user.getFirst_name());
     }
 
       @Test
