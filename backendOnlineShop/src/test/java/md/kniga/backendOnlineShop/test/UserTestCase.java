@@ -59,6 +59,8 @@ public class UserTestCase {
         user.setPassword("pass");
         user.setRole("admin");
 
+        assertEquals("Successfully added an address inside the database", true, userDAO.add(user));
+
         address = new Address();
         address.setAdressLineOne("12 Karl");
         address.setAdressLineTwo("apt 13");
@@ -67,9 +69,15 @@ public class UserTestCase {
         address.setShippingAdress(true);
         address.setSity("Tiraspol");
         address.setState("Tiraspol");
+
         address.setUserId(user.getId());
 
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
+
+        cart = new Cart();
+        cart.setUser(user);
+
+        assertEquals("Successfully added an address inside the database", true, userDAO.addCart(cart));
     }
 
     @Test
