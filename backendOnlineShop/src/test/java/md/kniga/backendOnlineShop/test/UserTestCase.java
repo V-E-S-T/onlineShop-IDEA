@@ -82,35 +82,35 @@ public class UserTestCase {
         assertEquals("Successfully added an address inside the database", true, userDAO.add(user));
 
         address = new Address();
-        address.setAdressLineOne("12 Karl");
-        address.setAdressLineTwo("apt 13");
+        address.setAddressLineOne("12 Karl");
+        address.setAddressLineTwo("apt 13");
         address.setCountry("Moldova");
         address.setPostalCode("MD-3300");
         address.setBillingAddress(true);
-        address.setSity("Tiraspol");
+        address.setCity("Tiraspol");
         address.setState("Tiraspol");
 
         address.setUser(user);
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
         address = new Address();
-        address.setAdressLineOne("22 Karl");
-        address.setAdressLineTwo("apt 23");
+        address.setAddressLineOne("22 Karl");
+        address.setAddressLineTwo("apt 23");
         address.setCountry("Moldova");
         address.setPostalCode("MD-3300");
         address.setBillingAddress(false);
-        address.setSity("Tiraspol");
+        address.setCity("Tiraspol");
 
         address.setUser(user);
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
         address = new Address();
-        address.setAdressLineOne("32 Karl");
-        address.setAdressLineTwo("apt 33");
+        address.setAddressLineOne("32 Karl");
+        address.setAddressLineTwo("apt 33");
         address.setCountry("Moldova");
         address.setPostalCode("MD-3300");
         address.setBillingAddress(false);
-        address.setSity("Tiraspol");
+        address.setCity("Tiraspol");
         address.setState("Tiraspol");
 
         address.setUser(user);
@@ -139,7 +139,7 @@ public class UserTestCase {
 
         address = userDAO.getBillingAddress(user);
 
-        assertEquals("Successfully fetched a single category inside the database", "12 Karl", address.getAdressLineOne());
+        assertEquals("Successfully fetched a single category inside the database", "12 Karl", address.getAddressLineOne());
 
         //HibernateConfig properties.put("hibernate.hbm2ddl.auto", "update");
     }

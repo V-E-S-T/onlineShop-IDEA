@@ -1,22 +1,25 @@
 package md.kniga.backendOnlineShop.dto;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Address {
+public class Address implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "adress_line_one")
-    private String adressLineOne;
+    @Column(name = "address_line_one")
+    private String addressLineOne;
 
-    @Column(name = "adress_line_two")
-    private String adressLineTwo;
+    @Column(name = "address_line_two")
+    private String addressLineTwo;
 
     @Column
-    private String sity;
+    private String city;
 
     @Column
     private String state;
@@ -49,28 +52,28 @@ public class Address {
         this.id = id;
     }
 
-    public String getAdressLineOne() {
-        return adressLineOne;
+    public String getAddressLineOne() {
+        return addressLineOne;
     }
 
-    public void setAdressLineOne(String adressLineOne) {
-        this.adressLineOne = adressLineOne;
+    public void setAddressLineOne(String addressLineOne) {
+        this.addressLineOne = addressLineOne;
     }
 
-    public String getAdressLineTwo() {
-        return adressLineTwo;
+    public String getAddressLineTwo() {
+        return addressLineTwo;
     }
 
-    public void setAdressLineTwo(String adressLineTwo) {
-        this.adressLineTwo = adressLineTwo;
+    public void setAddressLineTwo(String addressLineTwo) {
+        this.addressLineTwo = addressLineTwo;
     }
 
-    public String getSity() {
-        return sity;
+    public String getCity() {
+        return city;
     }
 
-    public void setSity(String sity) {
-        this.sity = sity;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getState() {
@@ -110,9 +113,9 @@ public class Address {
         return "Address{" +
                 "id=" + id +
                 //", userId=" + userId +
-                ", adressLineOne='" + adressLineOne + '\'' +
-                ", adressLineTwo='" + adressLineTwo + '\'' +
-                ", sity='" + sity + '\'' +
+                ", addressLineOne='" + addressLineOne + '\'' +
+                ", addressLineTwo='" + addressLineTwo + '\'' +
+                ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +
                 ", postalCode='" + postalCode + '\'' +

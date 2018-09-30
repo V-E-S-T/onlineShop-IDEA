@@ -51,7 +51,8 @@
 
     <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
         <property name="flowRegistry" ref="flowRegistry"/>
-        <!--<property name="order" value="-1"/>-->
+        <!--it is property used for handling similar request from PageController-->
+        <property name="order" value="-1"/>
     </bean>
 
     <bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">

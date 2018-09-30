@@ -125,4 +125,13 @@ public class PageController {
         return mv;
     }
 
+    @RequestMapping(value = "/register")
+    public ModelAndView register(){
+        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        mv.addObject("title", "About us");
+        mv.addObject("userClickAbout", true);
+        return mv;
+    }
+
 }
