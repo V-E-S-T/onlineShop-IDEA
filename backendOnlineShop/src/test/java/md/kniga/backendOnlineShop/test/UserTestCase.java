@@ -90,7 +90,7 @@ public class UserTestCase {
         address.setCity("Tiraspol");
         address.setState("Tiraspol");
 
-        address.setUser(user);
+        address.setUserId(user.getId());
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
         address = new Address();
@@ -101,7 +101,7 @@ public class UserTestCase {
         address.setBillingAddress(false);
         address.setCity("Tiraspol");
 
-        address.setUser(user);
+        address.setUserId(user.getId());
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
         address = new Address();
@@ -113,7 +113,7 @@ public class UserTestCase {
         address.setCity("Tiraspol");
         address.setState("Tiraspol");
 
-        address.setUser(user);
+        address.setUserId(user.getId());
         assertEquals("Successfully added an address inside the database", true, userDAO.addAddress(address));
 
         //HibernateConfig properties.put("hibernate.hbm2ddl.auto", "create");

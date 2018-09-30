@@ -32,17 +32,21 @@ public class RegisterHandler {
 
         String transitionValue = "success";
 
-//        User user = registerModel.getUser();
-//
-//        if(user.getRole().equals("USER")){
-//            Cart cart = new Cart();
-//            cart.setUser(user);
-//            user.setCart(cart);
-//        }
-//
-//        userDAO.add(user);
+        User user = registerModel.getUser();
 
+        if(user.getRole().equals("USER")){
+            Cart cart = new Cart();
+            cart.setUser(user);
+            user.setCart(cart);
+        }
 
+        userDAO.add(user);
+
+        Address billing = registerModel.getBilling();
+        billing.setUserId(user.getId());
+        billing.setBillingAddress(true);
+
+        userDAO.addAddress(billing);
 
         return transitionValue;
     }

@@ -1,6 +1,12 @@
 package md.kniga.backendOnlineShop.dto;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 @Entity
@@ -13,26 +19,42 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Pattern(regexp = "^[a-zA-Z]+$")
+    @NotBlank(message = "Please enter your First Name!")
     @Column(name = "first_name", nullable = false)
     private String first_name;
 
+    @Pattern(regexp = "^[a-zA-Z]+$")
+    @NotBlank(message = "Please enter your Last Name!")
     @Column(name = "last_name", nullable = false)
     private String last_name;
 
+    @NotBlank(message = "Please enter email!")
+    @Email
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "role", nullable = false)
     private String role;
 
+
+    @NotBlank(message = "Please enter the password!")
+    @Pattern(regexp = "((?=.*[0-9])((?=.*[a-z])|(?=.*[A-Z])))",
+             message = "Should contain 6-10 symbols (latin character and 1-9 number)")
+    @Min(value = 6)
+    @Max(value = 10)
     @Column(name = "password", nullable = false)
     private String password;
 
+    @NotBlank(message = "Please enter correct telephone number! (4-10 numerals)")
     @Column(name = "contact_number", nullable = false, unique = true)
+    @Min(value = 4)
+    @Max(value = 10)
+    @Pattern(regexp = "[0-9]")
     private String contact_number;
 
     @Column(name = "active")
-    private boolean active;
+    private boolean active = true;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL) //user - this is a field from Cart class which indicates that user - is a parent dependency for class Cart
     private Cart cart;           // and if we add new User we automatically add new Cart for this user - method addCart not needed
