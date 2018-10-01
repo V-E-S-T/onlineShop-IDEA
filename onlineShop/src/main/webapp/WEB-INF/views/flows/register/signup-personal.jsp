@@ -66,14 +66,14 @@
                                     </div>
                                 </div>
 
-                                <%--<div class="form-group row">--%>
-                                    <%--<label class="col-form-label col-md-4">Confirm Password</label>--%>
-                                    <%--<div class="col-md-8">--%>
-                                        <%--<sf:input type="password" path="confirmPassword" class="form-control"--%>
-                                                  <%--placeholder="Re-type password" />--%>
-                                        <%--<sf:errors path="confirmPassword" cssClass="help-block" element="em"/>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
+                                <div class="form-group row">
+                                    <label class="col-form-label col-md-4">Confirm Password</label>
+                                    <div class="col-md-8">
+                                        <sf:input type="password" path="confirmPassword" class="form-control"
+                                                  placeholder="Re-type password" />
+                                        <sf:errors path="confirmPassword" cssClass="help-block" element="em"/>
+                                    </div>
+                                </div>
 
                                 <div class="form-group row">
                                     <label class="col-form-label col-md-4">Select Role</label>

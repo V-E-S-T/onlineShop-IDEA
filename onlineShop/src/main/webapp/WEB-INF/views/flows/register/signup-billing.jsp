@@ -15,6 +15,16 @@
 
                 <div class="card-body">
 
+                    <%--TODO autocompletion of addresses in the form with library: https://developers.google.com/maps/documentation/javascript/places?hl=ru#places_autocomplete
+                        HTML:
+                        <input id="autocomplete" type="text"
+                            placeholder="Введите адрес" style="width: 100%">
+                        JavaScript:
+                        var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete'), {
+                            language: 'ru',
+                            componentRestrictions: {country: 'md'}
+                        });
+                    --%>
                     <sf:form
                             method="POST"
                             modelAttribute="billing"

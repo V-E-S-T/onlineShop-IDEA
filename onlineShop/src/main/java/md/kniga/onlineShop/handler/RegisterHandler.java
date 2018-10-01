@@ -6,6 +6,8 @@ import md.kniga.backendOnlineShop.dto.Cart;
 import md.kniga.backendOnlineShop.dto.User;
 import md.kniga.onlineShop.model.RegisterModel;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.binding.message.MessageBuilder;
+import org.springframework.binding.message.MessageContext;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -48,6 +50,35 @@ public class RegisterHandler {
 
         userDAO.addAddress(billing);
 
+        return transitionValue;
+    }
+
+    public String validateUser(User user, MessageContext error){
+
+        String transitionValue = "success";
+
+        if (user.getPassword().equals(user.getConfirmPassword())){
+
+            error.addMessage(new MessageBuilder()
+                    .error()
+                    .source("confirmPassword")
+                    .defaultText("Password doesn't match the confirm password")
+                    .build());
+            transitionValue = "failure";
+        }
+
+        //check the uniqueness of the email id
+
+        if(userDAO.getByEmail(user.getEmail()) != null){
+
+            error.addMessage(new MessageBuilder()
+                    .error()
+                    .source("email")
+                    .defaultText("Email is already used!")
+                    .build());
+
+            transitionValue = "failure";
+        }
         return transitionValue;
     }
 }
