@@ -41,7 +41,7 @@ public class User implements Serializable{
     @Column(name = "role", nullable = false)
     private String role;
 
-    @Pattern(regexp = "(?=.*[0-9])((?=.*[a-z]))((?=.*[A-Z])){6,10}",
+    @Pattern(regexp = "^[a-z0-9]{6,10}$",
              message = "Should contain 6-10 symbols (latin character and 1-9 numbers)")
     //@Size(min = 6, max = 10, message = "")
     @Column(name = "password", nullable = false)

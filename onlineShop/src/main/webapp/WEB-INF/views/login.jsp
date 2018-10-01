@@ -20,7 +20,7 @@
                             <%--modelAttribute="billing"--%>
                             <%--id="billingForm"--%>
                     <%-->--%>
-                    <sf:form>
+                    <sf:form modelAttribute="">
 
                         <div class="form-group row">
                             <label class="col-form-label col-md-4" for="userName">User Name</label>

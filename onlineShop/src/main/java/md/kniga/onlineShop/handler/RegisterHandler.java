@@ -57,7 +57,7 @@ public class RegisterHandler {
 
         String transitionValue = "success";
 
-        if (user.getPassword().equals(user.getConfirmPassword())){
+        if (!user.getPassword().equals(user.getConfirmPassword())){
 
             error.addMessage(new MessageBuilder()
                     .error()
