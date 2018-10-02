@@ -11,8 +11,14 @@
 
     <context:component-scan base-package="md.kniga.backendOnlineShop"/>
 
+    <!--static resources should be accessible without any security for working with login page-->
+    <http pattern="/resources/**" security="none"/>
+
     <http>
+        <!--<intercept-url pattern="/login" access="permitAll()" /> must be the first parameter because login page should be accessible for all users -->
+        <intercept-url pattern="/login" access="permitAll()" />
         <intercept-url pattern="/**" access="hasAuthority('USER')" />
+        <!-- username-parameter="email" password-parameter="password"  -->
         <form-login login-page="/login"/>
         <logout />
     </http>
@@ -24,8 +30,9 @@
             <password-encoder ref="noopEncoder"/>
             <!--"dataSource" - it is a bean name from HibernateConfig class-->
             <jdbc-user-service data-source-ref="dataSource"
+            authorities-by-username-query="SELECT email, role FROM user WHERE email=?"
             users-by-username-query="SELECT email, password, active FROM user WHERE email=?"
-            authorities-by-username-query="SELECT email, role FROM user WHERE email=?"/>
+            />
         </authentication-provider>
     </authentication-manager>
 

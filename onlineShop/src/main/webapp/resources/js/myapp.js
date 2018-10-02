@@ -22,6 +22,20 @@ $ (function () {
             break;
     }
 
+    //transferring _csrf token into ajax request for allows change the data with ajax request from the data table
+
+    var token = $('meta[name="_csrf"]').attr('content');
+    var header = $('meta[name="_csrf_header"]').attr('content');
+
+    if(token.length > 0 && header.length > 0){
+
+        $(document).ajaxSend(function (e, xhr, options) {
+
+            xhr.setRequestHeader(header, token);
+        });
+    }
+
+    //*********************************************************************************************
 
     var $table = $('#productListTable');
 
@@ -335,6 +349,45 @@ $ (function () {
             errorElement: 'em',
             errorPlacement: function(error, element){
                 error.addClass('help-block');
+                error.insertAfter(element);
+            }
+        });
+    }
+    //-----------------------------------------
+
+    //validation code for login form
+
+    var $loginForm = $('#loginForm');
+
+    if ($loginForm.length){
+
+        $loginForm.validate({
+
+            rules: {
+                userName:{
+                    required: true,
+                    email: true
+                },
+                password: {
+                    required: true
+                }
+            },
+            messages:{
+                userName: {
+                    required: 'Please enter the Username (email)',
+                    email: 'Please enter valid email'
+                },
+                password:{
+                    required: 'Please enter the Password'
+                }
+            },
+            errorElement: 'em',
+            errorPlacement: function(error, element){
+
+                // Add the 'help-block' class to the error element
+                error.addClass("help-block");
+
+                // add the error label after the input element
                 error.insertAfter(element);
             }
         });

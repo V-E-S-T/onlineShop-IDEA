@@ -31,6 +31,7 @@
 
                 <div class="card-body">
                     <%--FORm ELEMENTS--%>
+                    <%--in the spring form not needed to include _csrf token because it is included automatically--%>
                     <sf:form modelAttribute="newProduct" action="${contextRoot}/manage/products" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="name" class="col-form-label col-md-2 text-xl-left text-primary">Name</label>

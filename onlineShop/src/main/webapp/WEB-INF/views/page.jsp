@@ -19,6 +19,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
+        <meta name="_csrf" content="${_csrf.token}">
+        <meta name="_csrf_header" content="${_csrf.headerName}">
 
         <title>Online shopping ${title}</title>
 
@@ -57,7 +59,7 @@
 
     <div class="wrapper">
         <!-- Navigation -->
-        <%@include file="./shared/navbar.jsp"%>
+        <%@include file="shared/navbar.jsp"%>
         <!-- Page Content -->
 
         <div class="content">
@@ -92,7 +94,7 @@
         </div>
 
         <!-- Footer -->
-        <%@include file="./shared/footer.jsp"%>
+        <%@include file="shared/footer.jsp"%>
 
         <!-- jQuery JavaScript -->
         <script src="${js}/jquery.js"></script>
