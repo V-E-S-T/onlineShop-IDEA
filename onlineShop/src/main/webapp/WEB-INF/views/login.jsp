@@ -9,8 +9,6 @@
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,6 +103,7 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-4" for="userName">Email: </label>
                                         <div class="col-md-8">
+                                            <%--default parameter is name="username"--%>
                                             <input type="text" name="userName" id="userName" class="form-control"/>
                                         </div>
                                     </div>
@@ -112,6 +111,7 @@
                                     <div class="form-group row">
                                         <label class="col-form-label col-md-4" for="password">Password</label>
                                         <div class="col-md-8">
+                                            <%--default parameter is name="password"--%>
                                             <input type="text" name="password" id="password" class="form-control"/>
                                         </div>
                                     </div>

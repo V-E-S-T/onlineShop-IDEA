@@ -18,8 +18,9 @@
         <!--<intercept-url pattern="/login" access="permitAll()" /> must be the first parameter because login page should be accessible for all users -->
         <intercept-url pattern="/login" access="permitAll()" />
         <intercept-url pattern="/**" access="hasAuthority('USER')" />
-        <!-- username-parameter="email" password-parameter="password"  -->
-        <form-login login-page="/login"/>
+        <!-- default username-parameter="username" password-parameter="password" not needed to specify -->
+        <!--this parameters gets from <form> tag into login.jsp-->
+        <form-login login-page="/login" username-parameter="userName" password-parameter="password"/>
         <logout />
     </http>
 

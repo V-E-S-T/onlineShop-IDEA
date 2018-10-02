@@ -279,7 +279,7 @@ $ (function () {
 
                 var api = this.api();
 
-                api.$('.switch input[type="checkbox"]').on("change", function () {
+                api.$('.switch input[type="checkbox"]').on('change', function () {
                     var checkbox = $(this);
                     var checked = checkbox.prop("checked");
                     var dMsg = (checked)? 'You want to activate the product?': 'You want to deactivate the product?';
