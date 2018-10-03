@@ -287,7 +287,7 @@ $ (function () {
 
                     bootbox.confirm({
                         size: 'medium',
-                        title: 'Product activation and product deactivation',
+                        title: 'Product Activation/Deactivation',
                         message: dMsg,
                         callback: function(confirmed) {
 
@@ -298,16 +298,16 @@ $ (function () {
                                 var activationURL = window.contextRoot + '/manage/products/' + value + '/activation';
 
                                 //TODO second alert modal window not worked - need to fix it
-                                $.post(activationURL, function (data) {
+                                // $.get(activationURL, function (data) {
+                                //
+                                //     bootbox.alert({
+                                //         size: 'medium',
+                                //         title: 'Information',
+                                //         message: data
+                                //     });
+                                // });
 
-                                    bootbox.alert({
-                                        size: 'medium',
-                                        title: 'Information',
-                                        message: data
-                                    });
-                                });
-
-
+                                $.get(activationURL);
                             }
                             else{
                                 checkbox.prop('checked', !checked);

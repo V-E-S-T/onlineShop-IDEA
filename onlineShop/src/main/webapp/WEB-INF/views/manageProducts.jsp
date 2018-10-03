@@ -77,7 +77,7 @@
                         </div>
                         <%--File element for image uppload--%>
                         <div class="form-group row">
-                            <label for="file" class="col-form-label col-md-2 text-xl-left text-primary">Select an image: </label>
+                            <label class="col-form-label col-md-2 text-xl-left text-primary">Select an image: </label>
                             <div class="col-md-10">
                                 <sf:input path="file" type="file" class="form-control-plaintext"/>
                                 <sf:errors path="file" cssClass="help-block" element="em"/>

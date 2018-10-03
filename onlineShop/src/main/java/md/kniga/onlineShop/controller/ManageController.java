@@ -78,6 +78,7 @@ public class ManageController {
         }
 
         logger.info(modifiedProduct.toString());
+        
 
         if(modifiedProduct.getId() == 0){
             productDAO.add(modifiedProduct);
@@ -104,7 +105,7 @@ public class ManageController {
 
     //handling product submission
     @RequestMapping(value = "/products/{id}/activation", method = RequestMethod.GET)
-    public String handleProductActivation(@PathVariable int id){
+    public void handleProductActivation(@PathVariable int id){
 
         //fetching the product from the database
         Product product = productDAO.get(id);
@@ -115,8 +116,8 @@ public class ManageController {
 
         productDAO.update(product);
 
-        return activityStatus ? "You have successfully deactivate product with id: " + id :
-                                "You have successfully activate product with id: " + id;
+//        return activityStatus ? "You have successfully deactivate product with id: " + id :
+//                                "You have successfully activate product with id: " + id;
     }
 
     //handling product updating form
@@ -142,6 +143,4 @@ public class ManageController {
 
         return new Category();
     }
-
-
 }
