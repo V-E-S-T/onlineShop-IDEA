@@ -33,6 +33,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${contextRoot}/register">Register</a>
                 </li>
+                <li class="nav-item">
+                    <div class="btn-group nav-link">
+                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Full Name
+                        </button>
+                        <div class="dropdown-menu">
+                            <%--<a href="javascript:void(0)" class="dropdown-item"></a>--%>
+                            <a href="${contextRoot}/cart" class="dropdown-item">
+                                <span class="fa fa-cart-arrow-down"></span>
+                                <span class="badge">0</span>
+                                - &#8381; 0.0
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="${contextRoot}/logout" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </li>
+
             </ul>
 
         </div>

@@ -11,7 +11,7 @@
                 <h3>Kniga.md</h3>
                 <h6>Use your email as userNmae to login</h6>
                 <div>
-                    <a href="../../${contextRoot}/login" class="btn btn-lg btn-success">Login Here</a>
+                    <a href="${contextRoot}/login" class="btn btn-lg btn-success">Login Here</a>
                 </div>
             </div>
 

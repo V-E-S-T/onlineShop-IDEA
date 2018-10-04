@@ -5,10 +5,7 @@ import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 
 @Entity
@@ -41,9 +38,10 @@ public class User implements Serializable{
     @Column(name = "role", nullable = false)
     private String role;
 
-    @Pattern(regexp = "^[a-z0-9]{6,10}$",
-             message = "Should contain 6-10 symbols (latin character and 1-9 numbers)")
-    //@Size(min = 6, max = 10, message = "")
+//    @Pattern(regexp = "^[a-z0-9]{6,10}$",
+//             message = "Should contain 6-10 symbols (latin character and 1-9 numbers)")
+    @NotNull
+    @Size(min = 6, message = "Should contain 6 symbols")
     @Column(name = "password", nullable = false)
     private String password;
 

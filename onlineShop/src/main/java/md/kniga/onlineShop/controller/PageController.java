@@ -153,8 +153,9 @@ public class PageController {
     public ModelAndView accessDeniedHandler(){
         ModelAndView mv = new ModelAndView("error");    // "page" is a logical name, so to resolve a physical page name we need to use
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        mv.addObject("title", "Access Denied");
-        mv.addObject("userClickAbout", true);
+        mv.addObject("title", "403 ERROR - Access Denied");
+        mv.addObject("errorTitle", "Access Denied");
+        mv.addObject("errorDescription", "Access Denied");
         return mv;
     }
 }
