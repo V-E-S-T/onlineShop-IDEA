@@ -33,6 +33,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="${contextRoot}/register">Register</a>
                 </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="btn btn-outline-primary dropdown-toggle" id="dropdownMenu1"
+                    data-toggle="dropdown">
+                        Full name
+                        <span class="caret"></span>
+                    </a>
+
+                </li>
             </ul>
 
         </div>

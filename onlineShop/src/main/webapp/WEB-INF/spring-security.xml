@@ -11,13 +11,18 @@
 
     <context:component-scan base-package="md.kniga.backendOnlineShop"/>
 
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!--<beans:bean name="noopEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>-->
+
     <!--static resources should be accessible without any security for working with login page-->
     <http pattern="/resources/**" security="none"/>
 
     <http>
+
         <!--<intercept-url pattern="/login" access="permitAll()" /> must be the first parameter because login page should be accessible for all users -->
-        <intercept-url pattern="cart/**" access="hasAuthority('USER')" />
-        <intercept-url pattern="manage/**" access="hasAuthority('ADMIN')" />
+        <intercept-url pattern="/cart/**" access="hasAuthority('USER')" />
+        <intercept-url pattern="/manage/**" access="hasAuthority('ADMIN')" />
         <intercept-url pattern="/**" access="permitAll()" />
         <!-- default username-parameter="username" password-parameter="password" not needed to specify -->
         <!--this parameters gets from <form> tag into login.jsp-->
@@ -26,11 +31,10 @@
         <logout />
     </http>
 
-    <beans:bean name="noopEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder"/>
 
     <authentication-manager>
         <authentication-provider>
-            <password-encoder ref="noopEncoder"/>
+            <password-encoder ref="passwordEncoder"/>
             <!--"dataSource" - it is a bean name from HibernateConfig class-->
             <jdbc-user-service data-source-ref="dataSource"
             authorities-by-username-query="SELECT email, role FROM user WHERE email=?"
@@ -38,5 +42,7 @@
             />
         </authentication-provider>
     </authentication-manager>
+
+
 
 </beans:beans>
