@@ -148,4 +148,13 @@ public class PageController {
 
         return mv;
     }
+
+    @RequestMapping(value = "/access-denied")
+    public ModelAndView accessDeniedHandler(){
+        ModelAndView mv = new ModelAndView("error");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        mv.addObject("title", "Access Denied");
+        mv.addObject("userClickAbout", true);
+        return mv;
+    }
 }

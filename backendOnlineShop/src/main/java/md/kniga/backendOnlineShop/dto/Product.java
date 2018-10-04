@@ -19,7 +19,7 @@ public class Product {
     private String code;
 
     @NotBlank(message = "Please enter the product name!")
-    @Column(name = "name", nullable = false, unique = true)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @NotBlank(message = "Please enter the product brand!")
@@ -28,6 +28,7 @@ public class Product {
     @NotBlank(message = "Please enter the product description!")
     private String description;
 
+    //TODO delete this field - it would not be stored into database
     @Column(name = "image_url")
     private String imageUrl;
 
