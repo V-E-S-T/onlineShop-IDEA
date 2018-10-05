@@ -100,7 +100,7 @@ public class PageController {
         Category category = null;
         category = categoryDAO.get(id);
         mv.addObject("title", category.getName());
-        //passing the listAll of categories into the jsp
+        //passing the list of categories into the jsp
         mv.addObject("categories", categoryDAO.listAll());
         //passing the single category object into the jsp
         mv.addObject("category", category);

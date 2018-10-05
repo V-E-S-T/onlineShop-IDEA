@@ -73,7 +73,7 @@ public class CategoryTestCase {
         //category = categoryDAO.get(1);
         //category.setActive(false);
 
-        assertEquals("Successfully fetched the listAll of categories from database", 6, categoryDAO.listAll().size());
+        assertEquals("Successfully fetched the list of categories from database", 6, categoryDAO.listAll().size());
     }
 
     @Test
@@ -110,8 +110,8 @@ public class CategoryTestCase {
         //delete test
         assertEquals("Successfully deleted a single category", true, categoryDAO.delete(1));
 
-        //listAll test
-        assertEquals("Successfully fetched the listAll of categories from database", 6, categoryDAO.listAll().size());
+        //list test
+        assertEquals("Successfully fetched the list of categories from database", 6, categoryDAO.listAll().size());
 
     }
 

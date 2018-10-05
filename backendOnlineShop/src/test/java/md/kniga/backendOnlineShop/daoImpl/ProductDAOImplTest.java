@@ -30,7 +30,7 @@ public class ProductDAOImplTest {
     @Test
     public void listAll() throws Exception {
 
-        assertEquals("Successfully fetched the listAll of categories from database", 4, productDAO.listAll().size());
+        assertEquals("Successfully fetched the list of categories from database", 4, productDAO.listAll().size());
 
     }
 
@@ -39,7 +39,7 @@ public class ProductDAOImplTest {
 
         product = productDAO.get(3);
         product.setDescription("Some interesting Book");
-        assertEquals("Successfully fetched the listAll of categories from database", true, productDAO.update(product));
+        assertEquals("Successfully fetched the list of categories from database", true, productDAO.update(product));
     }
 
     @Test
@@ -47,19 +47,19 @@ public class ProductDAOImplTest {
 
         product = productDAO.get(3);
 
-        assertEquals("Successfully fetched the listAll of categories from database", true, productDAO.deactivate(product));
+        assertEquals("Successfully fetched the list of categories from database", true, productDAO.deactivate(product));
     }
 
     @Test
     public void delete() throws Exception {
 
-        assertEquals("Successfully fetched the listAll of categories from database", true, productDAO.delete(1));
+        assertEquals("Successfully fetched the list of categories from database", true, productDAO.delete(1));
     }
 
     @Test
     public void get() throws Exception {
 
-        assertEquals("Successfully fetched the listAll of categories from database", "Some interesting Book", productDAO.get(3).getDescription());
+        assertEquals("Successfully fetched the list of categories from database", "Some interesting Book", productDAO.get(3).getDescription());
     }
 
     @Test
@@ -76,7 +76,7 @@ public class ProductDAOImplTest {
         product.setActive(true);
         product.setActive(true);
 
-        assertEquals("Successfully fetched the listAll of categories from database", true, productDAO.add(product));
+        assertEquals("Successfully fetched the list of categories from database", true, productDAO.add(product));
 
     }
 

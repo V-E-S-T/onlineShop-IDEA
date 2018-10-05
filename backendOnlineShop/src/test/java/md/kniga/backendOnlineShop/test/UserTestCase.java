@@ -54,18 +54,18 @@ public class UserTestCase {
         assertEquals("Successfully added an address inside the database", true, userDAO.add(user));
     }
 
-    @Test
-    public void testUpdateCart(){
-
-        user = userDAO.getByEmail("Mmmmmmichael@gggggggmail.com");
-
-        cart = user.getCart();
-
-        cart.setGrandTotal(555);
-        cart.setCartLines(2);
-
-        assertEquals("Successfully added a cart inside the database", true, userDAO.updateCart(cart));
-    }
+//    @Test
+//    public void testUpdateCart(){
+//
+//        user = userDAO.getByEmail("Mmmmmmichael@gggggggmail.com");
+//
+//        cart = user.getCart();
+//
+//        cart.setGrandTotal(555);
+//        cart.setCartLines(2);
+//
+//        assertEquals("Successfully added a cart inside the database", true, userDAO.updateCart(cart));
+//    }
 
     @Test
     public void testAddAddress(){
@@ -182,13 +182,13 @@ public class UserTestCase {
     @Test
     public void testListAll(){
 
-        assertEquals("Successfully fetched the listAll of users from database", 3, userDAO.listAll().size());
+        assertEquals("Successfully fetched the list of users from database", 3, userDAO.listAll().size());
     }
 
     @Test
     public void testListActive(){
 
-        assertEquals("Successfully fetched the listAll of users from database", 2, userDAO.listActive().size());
+        assertEquals("Successfully fetched the list of users from database", 2, userDAO.listActive().size());
     }
 
 }
