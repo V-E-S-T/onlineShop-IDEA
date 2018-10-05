@@ -29,6 +29,8 @@
             window.menubar = '${title}';
 
             window.contextRoot = '${contextRoot}';
+
+            var userRole = '${userModel.getRole()}'
         </script>
 
         <!-- Bootstrap core CSS -->

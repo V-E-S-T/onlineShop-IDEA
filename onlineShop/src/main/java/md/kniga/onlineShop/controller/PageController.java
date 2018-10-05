@@ -8,11 +8,17 @@ import md.kniga.onlineShop.exception.ProductNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class PageController {
@@ -136,12 +142,18 @@ public class PageController {
     }
 
     @RequestMapping(value = "/login")
-    public ModelAndView login(@RequestParam(name = "error", required = false) String error)
+    public ModelAndView login(@RequestParam(name = "error", required = false) String error,
+                              @RequestParam(name = "logout", required = false) String logout)
+            //String logout - it is request parameter (/login?logout) from return "redirect:/login?logout"; in the @RequestMapping(value = "/perform-logout")
     {
         ModelAndView mv = new ModelAndView("login");
 
         if(error != null){
             mv.addObject("message", "Invalid UserName and Password");
+        }
+
+        if(logout != null){
+            mv.addObject("message", "User successfully logged out");
         }
 
         mv.addObject("title", "Login Page");
@@ -157,5 +169,17 @@ public class PageController {
         mv.addObject("errorTitle", "Access Denied");
         mv.addObject("errorDescription", "Access Denied");
         return mv;
+    }
+
+    @RequestMapping(value = "/perform-logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response){
+
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        if (auth != null){
+
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login?logout";
     }
 }

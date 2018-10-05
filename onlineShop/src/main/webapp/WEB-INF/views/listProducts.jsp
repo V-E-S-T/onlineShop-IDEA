@@ -41,31 +41,38 @@
 
             <div class="row">
                 <div class="col-12">
-                    <table id="productListTable" class="table table-striped table-bordered">
+                    <div class="container-fluid">
+                        <div class="table-responsive">
+                            <table id="productListTable" class="table table-striped table-bordered">
 
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Size</th>
-                                <th>Weight</th>
-                                <th>Price</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Size</th>
+                                    <th>Weight</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
 
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th>Name</th>
-                                <th>Size</th>
-                                <th>Weight</th>
-                                <th>Price</th>
-                                <th></th>
-                            </tr>
-                        </tfoot>
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Size</th>
+                                    <th>Weight</th>
+                                    <th>Price</th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
 
-                    </table>
+                            </table>
+
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
 

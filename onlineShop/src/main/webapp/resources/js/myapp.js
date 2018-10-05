@@ -107,13 +107,24 @@ $ (function () {
                         var str = '';
                         str += '<a href="'+ window.contextRoot + '/show/' + data + '/product" class="btn btn-info"><span class="fa fa-eye"></span></a> &#160';
 
-                        ////it is used for display 'Out of Stock!' instead '0' in column 'quantity'
-                        // if (row.quantity < 1) {
-                        //     str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
-                        // } else {
-                        //     str += '<a href="'+ window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-success"><span class="fa fa-cart-plus"></span></a>';
-                        // }
-                        str += '<a href="'+ window.contextRoot + '/cart/add/' + data + '/product" class="btn btn-success"><span class="fa fa-cart-plus"></span></a>';
+
+                        // var userRole takes from page.jsp (var userRole = '${userModel.getRole()}')
+                        if(userRole == 'USER'){
+
+                            str += '<a href="'
+                                + window.contextRoot
+                                + '/cart/add/'
+                                + data
+                                + '/product" class="btn btn-success"><span class="fa fa-cart-plus"></span></a>';
+                        }
+                        else{
+
+                            str += '<a href="'
+                                + window.contextRoot
+                                + '/manage/'
+                                + data
+                                + '/product" class="btn btn-warning"><span class="fas fa-pencil-alt"></span></a>';
+                        }
                         return str;
                     }
                 }
