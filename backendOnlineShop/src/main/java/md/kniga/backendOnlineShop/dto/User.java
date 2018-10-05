@@ -38,11 +38,10 @@ public class User implements Serializable{
     @Column(name = "role", nullable = false)
     private String role;
 
-    //    @Pattern(regexp = "^[a-z0-9]{6,10}$",
-    //             message = "Should contain 6-10 symbols (latin character and 1-9 numbers)")
-    //validation is processed after password hashing and for this reason user/password validation fail
+//    @Pattern(regexp = "^[a-z0-9]{6,10}$",
+//             message = "Should contain 6-10 symbols (latin character and 1-9 numbers)")
     @NotNull
-    @Size(min = 6, message = "Should contain min 6 symbols")
+    @Size(min = 6, message = "Should contain 6 symbols")
     @Column(name = "password", nullable = false)
     private String password;
 
