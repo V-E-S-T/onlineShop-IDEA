@@ -8,13 +8,16 @@ import md.kniga.backendOnlineShop.dto.CartLine;
 import md.kniga.backendOnlineShop.dto.Product;
 import md.kniga.backendOnlineShop.dto.User;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import static org.junit.Assert.assertEquals;
 
 public class CartLineTestCase {
 
     private static AnnotationConfigApplicationContext context;
 
-    private static CartLineDAO cartLineDAO = null;
+    private static CartLineDAO cartlineDAO = null;
     private static UserDAO userDAO = null;
     private static ProductDAO productDAO = null;
 
@@ -29,10 +32,41 @@ public class CartLineTestCase {
         context = new AnnotationConfigApplicationContext();
         context.scan("md.kniga.backendOnlineShop");
         context.refresh();
-        cartLineDAO = (CartLineDAO)context.getBean("cartLineDAO");
+        cartlineDAO = (CartLineDAO)context.getBean("cartlineDAO");
         productDAO = (ProductDAO)context.getBean("productDAO");
         userDAO = (UserDAO)context.getBean("userDAO");
     }
+
+    @Test
+    public void testAddNewCartLine(){
+
+        user = userDAO.getByEmail("sgolon@ro.ru");
+        cart = user.getCart();
+        product = productDAO.get(2);
+        cartLine = new CartLine();
+        cartLine.setCartId(cart.getId());
+        cartLine.setProduct(product);
+        cartLine.setProductCount(1);
+
+        double oldTotal = cartLine.getTotal();
+
+        cartLine.setTotal(product.getUnitPrice() * cartLine.getProductCount());
+
+        cart.setCartLines(cart.getCartLines() + 1);
+        cart.setGrandTotal(cart.getGrandTotal() + (cartLine.getTotal() - oldTotal));
+
+
+        assertEquals("CartLine Successfully added", true, cartlineDAO.add(cartLine));
+
+        //update the cart
+
+//        cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
+//        cart.setCartLines(cart.getCartLines() + 1);
+
+        assertEquals("CartLine Successfully updated", true, cartlineDAO.update(cartLine));
+    }
+
+
 
 
 }

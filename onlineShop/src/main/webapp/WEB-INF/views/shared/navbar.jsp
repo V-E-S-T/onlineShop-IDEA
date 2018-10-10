@@ -47,7 +47,7 @@
                     </button>
                     <div class="dropdown-menu">
                             <%--<a href="javascript:void(0)" class="dropdown-item"></a>--%>
-                        <a href="${contextRoot}/cart" class="dropdown-item">
+                        <a href="${contextRoot}/cart/show" class="dropdown-item">
                             <span class="fa fa-cart-arrow-down"></span>
                             <span class="badge">${userModel.cart.getCartLines()}</span>
                             - &#8381; ${userModel.cart.getGrandTotal()}
