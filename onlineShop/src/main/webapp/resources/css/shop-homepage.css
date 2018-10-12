@@ -270,3 +270,10 @@ a.nav-link:hover {
 .table-responsive{
   overflow-x: inherit;
 }
+
+.cartImg{
+    /*max-width: 100%;*/
+    /*height: auto;*/
+    width: 100px;
+    height: 100px;
+}
