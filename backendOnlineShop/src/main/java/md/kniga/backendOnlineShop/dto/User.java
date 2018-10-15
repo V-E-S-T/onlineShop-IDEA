@@ -54,7 +54,7 @@ public class User implements Serializable{
     @Column(name = "active")
     private boolean active = true;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL) //user - this is a field from Cart class which indicates that user - is a parent dependency for class Cart
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER) //user - this is a field from Cart class which indicates that user - is a parent dependency for class Cart
     private Cart cart;           // and if we add new User we automatically add new Cart for this user - method addCart not needed
 
     @Transient

@@ -1,6 +1,7 @@
 package md.kniga.onlineShop.services;
 
 import md.kniga.backendOnlineShop.dao.CartLineDAO;
+import md.kniga.backendOnlineShop.dao.ProductDAO;
 import md.kniga.backendOnlineShop.daoImpl.CartLineDAOImpl;
 import md.kniga.backendOnlineShop.dto.Cart;
 import md.kniga.backendOnlineShop.dto.CartLine;
@@ -19,6 +20,9 @@ public class CartService {
 
     @Autowired
     private HttpSession session;
+
+    @Autowired
+    private ProductDAO productDAO;
 
     private Cart getCart(){
 

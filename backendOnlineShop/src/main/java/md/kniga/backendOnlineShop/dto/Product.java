@@ -3,13 +3,15 @@ package md.kniga.backendOnlineShop.dto;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.util.UUID;
 
+@Component
 @Entity
-@Table(name = "product")
+//@Table(name = "product")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;

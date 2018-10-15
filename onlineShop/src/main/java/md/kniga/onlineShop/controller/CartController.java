@@ -1,10 +1,13 @@
 package md.kniga.onlineShop.controller;
 
+import md.kniga.backendOnlineShop.dto.CartLine;
 import md.kniga.onlineShop.services.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/cart")
@@ -19,7 +22,8 @@ public class CartController {
         ModelAndView mv = new ModelAndView("page");
         mv.addObject("title", "User Cart");
         mv.addObject("userClickShowCart", true);
-        mv.addObject("cartLines", cartService.getCartLines());
+        List<CartLine> cartLines = cartService.getCartLines();
+        mv.addObject("cartLines", cartLines);
 
         return mv;
     }

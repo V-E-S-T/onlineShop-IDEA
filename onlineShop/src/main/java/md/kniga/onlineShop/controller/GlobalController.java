@@ -21,6 +21,7 @@ public class GlobalController {
     private UserDAO userDAO;
 
     private UserModel userModel = null;
+    private User user = null;
 
 
     @ModelAttribute("userModel")
@@ -30,7 +31,8 @@ public class GlobalController {
 
             //add the user model
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            User user = userDAO.getByEmail(authentication.getName());
+
+            user = userDAO.getByEmail(authentication.getName());
 
             //TODO what if user==null ???
             if (user != null){
