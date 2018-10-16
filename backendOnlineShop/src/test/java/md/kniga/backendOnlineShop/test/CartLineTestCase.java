@@ -17,7 +17,7 @@ public class CartLineTestCase {
 
     private static AnnotationConfigApplicationContext context;
 
-    private static CartLineDAO cartlineDAO = null;
+    private static CartLineDAO cartLineDAO = null;
     private static UserDAO userDAO = null;
     private static ProductDAO productDAO = null;
 
@@ -32,7 +32,7 @@ public class CartLineTestCase {
         context = new AnnotationConfigApplicationContext();
         context.scan("md.kniga.backendOnlineShop");
         context.refresh();
-        cartlineDAO = (CartLineDAO)context.getBean("cartlineDAO");
+        cartLineDAO = (CartLineDAO)context.getBean("cartLineDAO");
         productDAO = (ProductDAO)context.getBean("productDAO");
         userDAO = (UserDAO)context.getBean("userDAO");
     }
@@ -56,14 +56,14 @@ public class CartLineTestCase {
         cart.setGrandTotal(cart.getGrandTotal() + (cartLine.getTotal() - oldTotal));
 
 
-        assertEquals("CartLine Successfully added", true, cartlineDAO.add(cartLine));
+        assertEquals("CartLine Successfully added", true, cartLineDAO.add(cartLine));
 
         //update the cart
 
 //        cart.setGrandTotal(cart.getGrandTotal() + cartLine.getTotal());
 //        cart.setCartLines(cart.getCartLines() + 1);
 
-        assertEquals("CartLine Successfully updated", true, cartlineDAO.update(cartLine));
+        assertEquals("CartLine Successfully updated", true, cartLineDAO.update(cartLine));
     }
 
 

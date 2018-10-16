@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Repository("cartlineDAO")
+@Repository("cartLineDAO")
 @Transactional
 public class CartLineDAOImpl implements CartLineDAO{
 
