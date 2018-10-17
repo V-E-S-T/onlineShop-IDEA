@@ -29,17 +29,17 @@
                                         </c:if>
                                     </h4>
                                     <p>Brand - ${cartLine.product.brand}</p>
-                                    <p>Brand - ${cartLine.product.description}</p>
+                                    <p>Description - ${cartLine.product.description}</p>
                                 </div>
                             </div>
                         </td>
                         <td data-th="Price" class="text-center">&#8381; ${cartLine.buyingPrice}</td>
                         <td data-th="Quantity">
-                            <input type="number" class="form-control text-center" value="${cartLine.productCount}">
+                            <input type="number" id="count_${cartLine.id}" min="1" max="3" class="form-control text-center" value="${cartLine.productCount}">
                         </td>
                         <td data-th="Subtotal" class="text-center">&#8381; ${cartLine.total}</td>
                         <td class="actions" data-th="">
-                            <button class="btn btn-info btn-sm"><span class="fas fa-sync"></span></button>
+                            <button type="button" id="refreshCart" value="${cartLine.id}" class="btn btn-info btn-sm"><span class="fas fa-sync"></span></button>
                             <button class="btn btn-danger btn-sm"><span class="fas fa-trash-alt"></span></button>
                         </td>
                     </tr>
