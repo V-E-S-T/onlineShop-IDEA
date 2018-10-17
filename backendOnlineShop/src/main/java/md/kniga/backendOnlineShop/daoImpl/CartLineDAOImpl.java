@@ -21,7 +21,7 @@ public class CartLineDAOImpl implements CartLineDAO{
     @Override
     public List<CartLine> list(int cartId) {
 
-        Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM Cartline WHERE cartId=:cartId", CartLine.class);
+        Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM CartLine WHERE cartId=:cartId", CartLine.class);
         query.setParameter("cartId", cartId);
         return query.getResultList();
     }
@@ -29,7 +29,7 @@ public class CartLineDAOImpl implements CartLineDAO{
     @Override
     public CartLine get(int id) {
 
-        Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM Cartline WHERE id=:id", CartLine.class);
+        Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM CartLine WHERE id=:id", CartLine.class);
         query.setParameter("id", id);
         return query.getSingleResult();
     }
@@ -78,7 +78,7 @@ public class CartLineDAOImpl implements CartLineDAO{
 
         try{
 
-            Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM Cartline WHERE cartId=:cartId AND product.id=:productId", CartLine.class);
+            Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM CartLine WHERE cartId=:cartId AND product.id=:productId", CartLine.class);
             query.setParameter("cartId", cartId);
             query.setParameter("productId", productId);
             return query.getSingleResult();
@@ -91,7 +91,7 @@ public class CartLineDAOImpl implements CartLineDAO{
     @Override
     public List<CartLine> listAvailable(int cartId) {
 
-        Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM Cartline WHERE cartId=:cartId AND available=:available", CartLine.class);
+        Query<CartLine> query = sessionFactory.getCurrentSession().createQuery("FROM CartLine WHERE cartId=:cartId AND available=:available", CartLine.class);
         query.setParameter("cartId", cartId);
         query.setParameter("available", true);
         return query.getResultList();

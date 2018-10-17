@@ -49,7 +49,7 @@ public class GlobalController {
                     userModel.setCart(user.getCart());
                 }
 
-                session.setAttribute("userModal", userModel);
+                session.setAttribute("userModel", userModel);
 
                 return userModel;
             }
