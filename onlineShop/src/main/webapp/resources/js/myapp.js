@@ -405,9 +405,9 @@ $ (function () {
     }
     //-----------------------------------------
 
-    //handling the click event of refresh cart button
+    //handling the click event of refreshCartLine button
 
-    $('button[name="refreshCart"]').click(function () {
+    $('button[id="refreshCartLine"]').click(function () {
 
         var cartLineId = $(this).attr('value');
         var countField = $('#count_' + cartLineId);
@@ -429,7 +429,40 @@ $ (function () {
                 });
             }
             else {
-                var updateUrl = window.contextRoot + '/cart/' + cartLineId + 'update?count=' + currentCount;
+                var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+                //forward it to the controller
+                window.location.href = updateUrl;
+            }
+        }
+
+    });
+    //-----------------------------------------
+
+    //handling the click event of deleteCartLine button
+
+    $('button[id="deleteCartLine"]').click(function () {
+
+        var cartLineId = $(this).attr('value');
+        var countField = $('#count_' + cartLineId);
+        var originalCount = countField.attr('value');
+        var currentCount = countField.val(); //function val() recent update value
+
+        //wor only when count has changed
+
+        if(currentCount !== originalCount){
+
+            if(countField.val() <1 || countField.val() >3){
+                //reverting back to the original count
+                //user has given count bellow 1 and above 3
+                currentCount.val(originalCount);
+                bootbox.alert({
+                    size: 'medium',
+                    title: 'Error',
+                    message: 'Product count should be minimum 1 and maximum 3!'
+                });
+            }
+            else {
+                var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
                 //forward it to the controller
                 window.location.href = updateUrl;
             }

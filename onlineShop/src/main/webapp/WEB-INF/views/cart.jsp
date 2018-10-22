@@ -1,4 +1,13 @@
 <div class="container">
+
+    <c:if test="${not empty message}">
+        <div class="alert alert-info" >
+            <h3 class="text-center">
+                ${message}
+            </h3>
+        </div>
+    </c:if>
+
     <c:choose>
         <c:when test="${not empty cartLines}">
 
@@ -39,8 +48,8 @@
                         </td>
                         <td data-th="Subtotal" class="text-center">&#8381; ${cartLine.total}</td>
                         <td class="actions" data-th="">
-                            <button type="button" id="refreshCart" value="${cartLine.id}" class="btn btn-info btn-sm"><span class="fas fa-sync"></span></button>
-                            <button class="btn btn-danger btn-sm"><span class="fas fa-trash-alt"></span></button>
+                            <button type="button" id="refreshCartLine" value="${cartLine.id}" class="btn btn-info btn-sm"><span class="fas fa-sync"></span></button>
+                            <a href="${contextRoot}/cart/${cartLine.id}/delete" value="${cartLine.id}"class="btn btn-danger btn-sm"><span class="fas fa-trash-alt"></span></a>
                         </td>
                     </tr>
 
@@ -52,7 +61,7 @@
                     <td class="text-center"><strong>&#8381; ${userModel.cart.grandTotal}</strong></td>
                 </tr>
                 <tr>
-                    <td><a href="#" class="btn btn-warning"><span class="fas fa-chevron-left"></span> Continue Shopping</a></td>
+                    <td><a href="${contextRoot}/show/all/products" class="btn btn-warning"><span class="fas fa-chevron-left"></span> Continue Shopping</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="d-none d-sm-block text-center"><strong>Total &#8381; ${userModel.cart.grandTotal}</strong></td>
                     <td><a href="#" class="btn btn-success btn-block">Checkout <span class="fas fa-chevron-right"></span></a></td>
