@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@include file="../shared/flow-header.jsp"%>
 
@@ -10,7 +11,7 @@
                     <div class="panel panel-primary">
 
                         <div class="card-header">
-                            <h4>Sign Up - Personal</h4>
+                            <h4>Регистрация аккаунта</h4>
                         </div>
 
                         <div class="card-body">
@@ -22,7 +23,7 @@
                                     id="registerForm"
                             >
                                 <div class="form-group row">
-                                    <label class="col-form-label col-md-4">First Name</label>
+                                    <label class="col-form-label col-md-4">Фамилия</label>
                                     <div class="col-md-8">
                                         <sf:input type="text" path="first_name" class="form-control"
                                                   placeholder="First Name" />

@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="${contextRoot}/home">Online shopping</a>
@@ -13,25 +14,25 @@
                 <%--</li>--%>
 
                 <li class="nav-item" id="listProducts">
-                    <a class="nav-link" href="${contextRoot}/show/all/products">All Products</a>
+                    <a class="nav-link" href="${contextRoot}/show/all/products">Главная</a>
                 </li>
                 <li class="nav-item" id="about">
-                    <a class="nav-link" href="${contextRoot}/about">About</a>
+                    <a class="nav-link" href="${contextRoot}/about">О нас</a>
                 </li>
                 <li class="nav-item" id="contact">
-                    <a class="nav-link" href="${contextRoot}/contact">Contact</a>
+                    <a class="nav-link" href="${contextRoot}/contact">Контакты</a>
                 </li>
                 <li class="nav-item" id="manageProducts">
-                    <a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
+                    <a class="nav-link" href="${contextRoot}/manage/products">Управление</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="${contextRoot}/login">Login</a>
+                    <a class="nav-link" href="${contextRoot}/login">Войти</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${contextRoot}/register">Register</a>
+                    <a class="nav-link" href="${contextRoot}/register">Регистрация</a>
                 </li>
                 <%--<li class="nav-item">--%>
 
@@ -53,7 +54,7 @@
                             - &#8381; ${userModel.cart.getGrandTotal()}
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="${contextRoot}/perform-logout" class="dropdown-item">Logout</a>
+                        <a href="${contextRoot}/perform-logout" class="dropdown-item">Выход</a>
                     </div>
                 </div>
             </c:if>

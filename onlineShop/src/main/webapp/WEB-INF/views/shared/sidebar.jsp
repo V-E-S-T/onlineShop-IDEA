@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <c:set var="categories" value="${pageContext.request.getAttribute('categories')}"/>
 
 <h1 class="my-4">Shop Name</h1>

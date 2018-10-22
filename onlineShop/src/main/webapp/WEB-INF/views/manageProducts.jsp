@@ -1,5 +1,6 @@
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
+
 <div class="container">
     <div class="row">
         <c:if test="${not empty successMessage}">
