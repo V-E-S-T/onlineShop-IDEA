@@ -1,8 +1,8 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java"%>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="${contextRoot}/home">Online shopping</a>
+        <a class="navbar-brand" href="${contextRoot}/home">Kniga.md</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -46,8 +46,8 @@
 
             <security:authorize access="isAuthenticated()">
 
-                <div class="btn-group nav-link">
-                    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="btn-group mx-2">
+                    <button type="button" class="btn btn-outline-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ${userModel.fullName}
                     </button>
                     <div class="dropdown-menu">
@@ -67,20 +67,13 @@
                     </div>
                 </div>
 
-                <ul class="navbar-nav">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="${contextRoot}/perform-logout">Выход</a>
-                    </li>
-                    <li class="nav-item">
-                            <a href="${contextRoot}/cart/show" class="dropdown-item">
-                            <span class="fa fa-cart-arrow-down"></span>
-                            <span class="badge">${userModel.cart.getCartLines()}</span>
-                            - &#8381; ${userModel.cart.getGrandTotal()}
-                            </a>
-                    </li>
-
-                </ul>
+                <button type="button" class="btn mx-2">
+                    <a href="${contextRoot}/cart/show" class="text-success">
+                        <span class="fa fa-cart-arrow-down"></span>
+                        <span class="badge">${userModel.cart.getCartLines()}</span>
+                        - &#8381; ${userModel.cart.getGrandTotal()}
+                    </a>
+                </button>
 
             </security:authorize>
 

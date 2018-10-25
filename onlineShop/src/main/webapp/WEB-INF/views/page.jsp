@@ -22,7 +22,7 @@
         <meta name="_csrf" content="${_csrf.token}">
         <meta name="_csrf_header" content="${_csrf.headerName}">
 
-        <title>Online shopping ${title}</title>
+        <title>Kniga.md ${title}</title>
 
         <script>
             <%--variable ${title} we get from PageController as attribute name "title"--%>
