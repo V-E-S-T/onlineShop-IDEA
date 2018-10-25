@@ -6,14 +6,20 @@
 
     <var name="user" class="md.kniga.backendOnlineShop.dto.User"/>
     <var name="billing" class="md.kniga.backendOnlineShop.dto.Address"/>
+    <var name="registerModel" class="md.kniga.onlineShop.model.RegisterModel"/>
+
+
+
+
 
     <!--returning and adding inside the flow RegisterModel instance-->
     <on-start>
-        <evaluate expression="registerHandler.init()" result="flowScope.registerModel"/>
+        <!--<evaluate expression="registerHandler.init()" result="flowScope.registerModel"/>-->
+        <set name="registerModel" value="registerHandler.getCurrentUserRegisterModel(globalController.userModel.email)"/>
     </on-start>
 
     <!--start state-->
-    <view-state id="personal" view="flows/user-settings/setting-personal" model="user">
+    <view-state id="personal" view="flows/register/signup-personal" model="user">
         <transition on="billing" to="validate"/>
         <on-exit>
             <evaluate expression="registerHandler.addUser(flowScope.registerModel, user)"/>

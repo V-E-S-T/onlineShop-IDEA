@@ -125,7 +125,7 @@ public class UserTestCase {
 
         user = userDAO.getByEmail("Mmmmmmichael@gggggggmail.com");
 
-        List<Address> listAddresses = userDAO.listShippingAddresses(user);
+        List<Address> listAddresses = userDAO.listAddresses(user);
 
         assertEquals("Successfully fetched a single category inside the database", 2, listAddresses.size());
 

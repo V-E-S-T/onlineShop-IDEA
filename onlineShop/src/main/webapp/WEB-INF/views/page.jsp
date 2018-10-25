@@ -99,6 +99,11 @@
                 <%@include file="cart.jsp"%>
             </c:if>
 
+            <%--Load only when user change account settings--%>
+            <c:if test="${userClickChange == true}">
+                <%@include file="userDetails.jsp"%>
+            </c:if>
+
 
         </div>
 

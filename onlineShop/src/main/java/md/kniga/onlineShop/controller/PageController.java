@@ -2,8 +2,11 @@ package md.kniga.onlineShop.controller;
 
 import md.kniga.backendOnlineShop.dao.CategoryDAO;
 import md.kniga.backendOnlineShop.dao.ProductDAO;
+import md.kniga.backendOnlineShop.dao.UserDAO;
+import md.kniga.backendOnlineShop.dto.Address;
 import md.kniga.backendOnlineShop.dto.Category;
 import md.kniga.backendOnlineShop.dto.Product;
+import md.kniga.backendOnlineShop.dto.User;
 import md.kniga.onlineShop.exception.ProductNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class PageController {
@@ -30,6 +34,9 @@ public class PageController {
 
     @Autowired
     private ProductDAO productDAO;
+
+    @Autowired
+    private UserDAO userDAO;
 
     @RequestMapping(value = {"/", "home", "index"})
     public ModelAndView index()
@@ -136,8 +143,21 @@ public class PageController {
     public ModelAndView register(){
         ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        mv.addObject("title", "About us");
-        mv.addObject("userClickAbout", true);
+        mv.addObject("title", "User Registration");
+        mv.addObject("userClickRegister", true);
+        return mv;
+    }
+
+    @RequestMapping(value = "/user-settings/{email}")
+    public ModelAndView userChange(@PathVariable("email") String email){
+        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        User user = userDAO.getByEmail(email);
+        List<Address> addresses = userDAO.listAddresses(user);
+        mv.addObject("title", "User Change");
+        mv.addObject("user", user);
+        mv.addObject("addresses", addresses);
+        mv.addObject("userClickChange", true);
         return mv;
     }
 

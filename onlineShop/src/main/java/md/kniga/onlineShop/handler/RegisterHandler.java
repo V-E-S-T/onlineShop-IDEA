@@ -87,4 +87,27 @@ public class RegisterHandler {
         }
         return transitionValue;
     }
+
+//    public Address getAddress(User user){
+//
+//        return userDAO.getBillingAddress(user);
+//    }
+//
+//    public User getUser(String email){
+//
+//        return userDAO.getByEmail(email);
+//    }
+
+    public RegisterModel getCurrentUserRegisterModel(String email){
+
+        RegisterModel registerModel = new RegisterModel();
+        User user = userDAO.getByEmail(email);
+        Address address = userDAO.getBillingAddress(user);
+
+        registerModel.setUser(user);
+        registerModel.setBilling(address);
+
+        return registerModel;
+
+    }
 }
