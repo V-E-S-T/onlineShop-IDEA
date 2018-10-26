@@ -100,7 +100,7 @@
             </c:if>
 
             <%--Load only when user change account settings--%>
-            <c:if test="${userClickChange == true}">
+            <c:if test="${userClickSettings == true}">
                 <%@include file="userDetails.jsp"%>
             </c:if>
 

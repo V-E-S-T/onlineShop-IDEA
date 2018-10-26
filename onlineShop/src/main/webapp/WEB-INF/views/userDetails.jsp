@@ -34,7 +34,7 @@
                 <div class="card-body">
                     <%--FORm ELEMENTS--%>
                     <%--in the spring form not needed to include _csrf token because it is included automatically--%>
-                    <sf:form modelAttribute="user" action="${contextRoot}/user/detail" method="POST" enctype="multipart/form-data">
+                    <sf:form modelAttribute="user" action="${contextRoot}/user/details" method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="first_name" class="col-form-label col-md-2 text-xl-left text-primary">Имя</label>
                             <div class="col-md-10">
@@ -56,8 +56,16 @@
                         <div class="form-group row">
                             <label for="email" class="col-form-label col-md-2 text-xl-left text-primary">email</label>
                             <div class="col-md-10">
-                                <sf:textarea path="email" type="text" class="form-control" id="email" name="email" placeholder="email"/>
+                                <sf:input path="email" type="text" class="form-control" id="email" name="email" placeholder="email"/>
                                 <sf:errors path="email" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product description!</em>--%>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="email" class="col-form-label col-md-2 text-xl-left text-primary">email</label>
+                            <div class="col-md-10">
+                                <sf:input path="contact_number" type="text" class="form-control" id="contact_number" name="contact_number" placeholder="Телефон"/>
+                                <sf:errors path="contact_number" cssClass="help-block" element="em"/>
                                     <%--<em class="help-block">Please enter Product description!</em>--%>
                             </div>
                         </div>
@@ -74,6 +82,7 @@
                                 <sf:hidden path="id"/>
                                 <sf:hidden path="role"/>
                                 <sf:hidden path="active"/>
+                                <sf:hidden path="password"/>
                             </div>
                         </div>
                     </sf:form>
@@ -113,6 +122,13 @@
                             <div class="col-form-label col-md-10">
 
                                 <input type="submit" class="btn btn-outline-primary btn-lg" id="submit" name="submit" value="Submit">
+                                <sf:hidden path="id"/>
+                                <sf:hidden path="role"/>
+                                <sf:hidden path="active"/>
+                                <sf:hidden path="contact_number"/>
+                                <sf:hidden path="email"/>
+                                <sf:hidden path="last_name"/>
+                                <sf:hidden path="first_name"/>
                             </div>
                         </div>
 

@@ -128,8 +128,8 @@ public class UserDAOImpl implements UserDAO{
     @Override
     public List<Address> listAddresses(User user) {
         try{
-            Query<Address> query = sessionFactory.getCurrentSession().createQuery("FROM Address WHERE user=:user", Address.class);
-            query.setParameter("user", user);
+            Query<Address> query = sessionFactory.getCurrentSession().createQuery("FROM Address WHERE user_id=:user_id", Address.class);
+            query.setParameter("user_id", user.getId());
 
             return query.getResultList();
         }

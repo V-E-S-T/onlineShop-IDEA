@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -145,19 +146,6 @@ public class PageController {
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
         mv.addObject("title", "User Registration");
         mv.addObject("userClickRegister", true);
-        return mv;
-    }
-
-    @RequestMapping(value = "/user-settings/{email}")
-    public ModelAndView userChange(@PathVariable("email") String email){
-        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
-        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        User user = userDAO.getByEmail(email);
-        List<Address> addresses = userDAO.listAddresses(user);
-        mv.addObject("title", "User Change");
-        mv.addObject("user", user);
-        mv.addObject("addresses", addresses);
-        mv.addObject("userClickChange", true);
         return mv;
     }
 

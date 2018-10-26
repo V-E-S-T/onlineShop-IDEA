@@ -59,7 +59,7 @@
                             <%--- &#8381; ${userModel.cart.getGrandTotal()}--%>
                         <%--</a>--%>
 
-                        <a href="${contextRoot}/user-settings/${userModel.getEmail()}" class="dropdown-item">Настройки</a>
+                        <a href="${contextRoot}/user/details" class="dropdown-item">Настройки</a>
 
                         <div class="dropdown-divider"></div>
 
