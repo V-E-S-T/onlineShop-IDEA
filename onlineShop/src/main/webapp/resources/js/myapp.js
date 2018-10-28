@@ -472,4 +472,40 @@ $ (function () {
     //-----------------------------------------
 
 
+    //handling the click event of change password button
+
+    $('button[id="changePassword"]').click(function () {
+
+        $('#new_password').val('').focus();
+    });
+
+    var $changePasswordForm = $('#changePasswordForm');
+
+    if ($changePasswordForm.length){
+
+        $changePasswordForm.validate({
+
+            rules: {
+                password: {
+                    required: true
+                }
+            },
+            messages:{
+                password:{
+                    required: 'Пожалуйста, введите пароль'
+                }
+            },
+            errorElement: 'em',
+            errorPlacement: function(error, element){
+
+                // Add the 'help-block' class to the error element
+                error.addClass("help-block");
+
+                // add the error label after the input element
+                error.insertAfter(element);
+            }
+        });
+    }
+    //-----------------------------------------
+
 });

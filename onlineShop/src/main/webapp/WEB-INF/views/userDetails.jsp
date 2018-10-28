@@ -34,7 +34,7 @@
                 <div class="card-body">
                     <%--FORm ELEMENTS--%>
                     <%--in the spring form not needed to include _csrf token because it is included automatically--%>
-                    <sf:form modelAttribute="user" action="${contextRoot}/user/details" method="POST" enctype="multipart/form-data">
+                    <sf:form modelAttribute="user" action="${contextRoot}/user/details" method="POST" enctype="multipart/form-data" id="userSettingsForm">
                         <div class="form-group row">
                             <label for="first_name" class="col-form-label col-md-2 text-xl-left text-primary">Имя</label>
                             <div class="col-md-10">
@@ -72,7 +72,7 @@
                         <div class="form-group row">
 
                             <div class="col-md-10">
-                                <button type="button" data-toggle="modal" data-target="#changePasswordModal" class="btn btn-outline-primary btn-sm">Сменить пароль</button>
+                                <button type="button" data-toggle="modal" data-target="#changePasswordModal" class="btn btn-outline-primary btn-sm" id="changePassword">Сменить пароль</button>
                             </div>
                         </div>
 
@@ -133,6 +133,7 @@
                         </div>
 
                     </sf:form>
+
                 </div>
 
             </div>

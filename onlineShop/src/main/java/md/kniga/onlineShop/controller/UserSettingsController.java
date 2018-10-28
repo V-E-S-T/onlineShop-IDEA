@@ -7,10 +7,14 @@ import md.kniga.onlineShop.model.UserModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -20,6 +24,9 @@ public class UserSettingsController {
     @Autowired
     private UserDAO userDAO;
 
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
     private static final Logger logger = LoggerFactory.getLogger(UserSettingsController.class);
 
     @RequestMapping(value = "/details", method = RequestMethod.GET)
@@ -28,7 +35,7 @@ public class UserSettingsController {
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
         User user = userDAO.get(userModel.getId());
         List<Address> addresses = userDAO.listAddresses(user);
-        mv.addObject("title", "User Change");
+        mv.addObject("title", "User Setting");
         mv.addObject("user", user);
         mv.addObject("addresses", addresses);
         mv.addObject("userClickSettings", true);
@@ -44,7 +51,14 @@ public class UserSettingsController {
     }
 
     @RequestMapping(value = "/details", method = RequestMethod.POST)
-    public String changeUser(@ModelAttribute("user") User user){
+    public String changeUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model){
+
+        if(bindingResult.hasErrors()){
+            model.addAttribute("userClickSettings",true);
+            model.addAttribute("title", "User Setting");
+            model.addAttribute("failedMessage", "Форма ввода заполнена неверно!");
+            return "page";
+        }
 
         userDAO.update(user);
 
@@ -52,7 +66,16 @@ public class UserSettingsController {
     }
 
     @RequestMapping(value = "/password", method = RequestMethod.POST)
-    public String changePassword(@ModelAttribute("user") User user){
+    public String changePassword(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model){
+
+        if(bindingResult.hasErrors()){
+            model.addAttribute("userClickSettings",true);
+            model.addAttribute("title", "User Setting");
+            model.addAttribute("failedMessage", "Пароль должен содержать не менее 6 символов!");
+            return "page";
+        }
+
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userDAO.update(user);
 
