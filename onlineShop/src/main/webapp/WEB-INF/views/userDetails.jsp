@@ -141,4 +141,113 @@
         </div>
     </div>
 
+    <div class="col-12">
+
+        <%--Adress table--%>
+
+        <div class="container-fluid">
+            <div class="table-responsive">
+
+                <table id="addressTable" class="table table-condensed table-bordered" style="overflow:auto">
+                    <thead>
+                    <tr>
+                        <th>Город</th>
+                        <th>Улица</th>
+                        <th>Номер дома</th>
+                        <th>Почтовый код</th>
+                        <th>Описание</th>
+                        <th>Редактировать</th>
+                        <th>Удалить</th>
+                    </tr>
+                    </thead>
+
+                    <tfoot>
+                    <tr>
+                        <th>Город</th>
+                        <th>Улица</th>
+                        <th>Номер дома</th>
+                        <th>Почтовый код</th>
+                        <th>Описание</th>
+                        <th>Редактировать</th>
+                        <th>Удалить</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myAddressModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <%--Modal header--%>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <span>&times;</span>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <%--Category Form--%>
+                    <sf:form modelAttribute="address" action="${contextRoot}/user/address/${address.id}/change" method="POST" cssClass="form-group" id="addressForm">
+                        <div class="row">
+
+                            <label for="address_city" class="col-form-label col-md-4 text-xl-left text-primary">Город</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:input path="city" type="text" class="form-control" id="city" name="address_city" placeholder="Город или населённый пункт"/>
+                                <sf:errors path="city" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product Name!</em>--%>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="address_addressLineOne" class="col-form-label col-md-4 text-xl-left text-primary">Category Description</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:input path="addressLineOne" type="text" class="form-control" id="address_addressLineOne" name="address_addressLineOne" placeholder="Улица"/>
+                                <sf:errors path="addressLineOne" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product Name!</em>--%>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="address_addressLineTwo" class="col-form-label col-md-4 text-xl-left text-primary">Category Description</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:input path="addressLineTwo" type="text" class="form-control" id="address_addressLineTwo" name="address_addressLineTwo" placeholder="Номер дома, квартиры"/>
+                                <sf:errors path="addressLineTwo" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product Name!</em>--%>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="address_postalCode" class="col-form-label col-md-4 text-xl-left text-primary">Category Description</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:input path="postalCode" type="text" class="form-control" id="address_postalCode" name="address_postalCode" placeholder="Индекс почтового отделения"/>
+                                <sf:errors path="postalCode" cssClass="help-block" element="em"/>
+                                    <%--<em class="help-block">Please enter Product Name!</em>--%>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-form-label col-md-10">
+
+                                <input type="submit" class="btn btn-outline-primary btn-lg" id="submit" name="submit" value="Submit">
+                            </div>
+                        </div>
+
+                    </sf:form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
+
+

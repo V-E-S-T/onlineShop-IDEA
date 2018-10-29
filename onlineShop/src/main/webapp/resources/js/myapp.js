@@ -508,4 +508,154 @@ $ (function () {
     }
     //-----------------------------------------
 
+    //addressTable for admin
+
+    var $addressTable = $('#addressTable');
+
+    // execute this code only where we have this table
+
+    if ($addressTable.length){
+
+        var jsonUrl = window.contextRoot + '/json/data/user/addresses';
+
+
+        //console.log('Inside the table');
+
+        $addressTable.DataTable({
+
+            lengthMenu: [[5,10,15,-1], ['5 записей', '10 записей','15 записей','Показать всё']],
+            pageLength: 5,
+            ajax: {
+                url: jsonUrl,
+                dataSrc: ''
+            },
+            columns: [
+                {
+                    data: 'city'
+                },
+                {
+                    data: 'addressLineOne'
+                },
+                {
+                    data: 'addressLineTwo'
+                },
+                {
+                    data: 'postalCode'
+                },
+                {
+                    data: 'isBillingAddress',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+                        var str = '';
+
+                        if (data){
+                            str += 'Домашний адресс';
+                        }
+                        else{
+                            str += 'Адресс доставки';
+                        }
+                        return str;
+                    }
+                },
+                {
+                    data: 'id',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+                        var str = '';
+                        str += '<button  type="button" data-toggle="modal" data-target="#myAddressModal" ' +
+                            'class="btn btn-warning"><span class="fas fa-pencil-alt"></span></button>';
+                        return str;
+                    }
+                },
+                {
+                    data: 'id',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+                        var str = '';
+                        str += '<a href="'
+                            + window.contextRoot
+                            + '/user'
+                            + '/address/'
+                            + data
+                            + '/delete" class="btn btn-danger"><span class="fas fa-backspace"></span></a>';
+                        return str;
+                    }
+                }
+            ]
+
+            // initComplete: function () {
+            //
+            //     var api = this.api();
+            //
+            //     $('button[id="refreshCartLine"]').click(function () {
+            //
+            //         var cartLineId = $(this).attr('value');
+            //         var countField = $('#count_' + cartLineId);
+            //         var originalCount = countField.attr('value');
+            //         var currentCount = countField.val(); //function val() recent update value
+            //
+            //         //wor only when count has changed
+            //
+            //         if(currentCount !== originalCount){
+            //
+            //             if(countField.val() <1 || countField.val() >3){
+            //                 //reverting back to the original count
+            //                 //user has given count bellow 1 and above 3
+            //                 currentCount.val(originalCount);
+            //                 bootbox.alert({
+            //                     size: 'medium',
+            //                     title: 'Error',
+            //                     message: 'Product count should be minimum 1 and maximum 3!'
+            //                 });
+            //             }
+            //             else {
+            //                 var updateUrl = window.contextRoot + '/cart/' + cartLineId + '/update?count=' + currentCount;
+            //                 //forward it to the controller
+            //                 window.location.href = updateUrl;
+            //             }
+            //         }
+            //
+            //     });
+            //
+            //     api.$('.switch input[type="checkbox"]').on('change', function () {
+            //         var checkbox = $(this);
+            //         var checked = checkbox.prop("checked");
+            //         var dMsg = (checked)? 'You want to activate the product?': 'You want to deactivate the product?';
+            //         var value = checkbox.prop('value');
+            //
+            //         bootbox.confirm({
+            //             size: 'medium',
+            //             title: 'Product Activation/Deactivation',
+            //             message: dMsg,
+            //             callback: function(confirmed) {
+            //
+            //                 if (confirmed){
+            //
+            //                     console.log(value);
+            //
+            //                     var activationURL = window.contextRoot + '/manage/products/' + value + '/activation';
+            //
+
+            //                     // $.get(activationURL, function (data) {
+            //                     //
+            //                     //     bootbox.alert({
+            //                     //         size: 'medium',
+            //                     //         title: 'Information',
+            //                     //         message: data
+            //                     //     });
+            //                     // });
+            //
+            //                     $.get(activationURL);
+            //                 }
+            //                 else{
+            //                     checkbox.prop('checked', !checked);
+            //                 }
+            //             }
+            //         });
+            //     });
+            // }
+        });
+    }
+    //------------------------------------------------------------
+
 });
