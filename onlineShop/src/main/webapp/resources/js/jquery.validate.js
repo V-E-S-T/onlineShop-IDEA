@@ -29,7 +29,7 @@ $.extend( $.fn, {
 			return;
 		}
 
-		// Check if a validator for this form was already created
+		// Check if a md.kniga.onlineShop.validator for this form was already created
 		var validator = $.data( this[ 0 ], "validator" );
 		if ( validator ) {
 			return validator;
@@ -234,7 +234,7 @@ $.extend( $.expr.pseudos || $.expr[ ":" ], {		// '|| $.expr[ ":" ]' here enables
 	}
 } );
 
-// Constructor for validator
+// Constructor for md.kniga.onlineShop.validator
 $.validator = function( options, form ) {
 	this.settings = $.extend( true, {}, $.validator.defaults, options );
 	this.currentForm = form;
@@ -1133,7 +1133,7 @@ $.extend( $.validator, {
 			} );
 		},
 
-		// Cleans up all forms and elements, removes validator-specific events
+		// Cleans up all forms and elements, removes md.kniga.onlineShop.validator-specific events
 		destroy: function() {
 			this.resetForm();
 

@@ -1,6 +1,8 @@
 package md.kniga.onlineShop.controller;
 
 import md.kniga.backendOnlineShop.dao.ProductDAO;
+import md.kniga.backendOnlineShop.dao.UserDAO;
+import md.kniga.backendOnlineShop.dto.Address;
 import md.kniga.backendOnlineShop.dto.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +17,9 @@ public class JsonDataController {
 
     @Autowired
     private ProductDAO productDAO;
+
+    @Autowired
+    private UserDAO userDAO;
 
     @RequestMapping("/all/products")
     public List<Product> getAllProduct(){
@@ -34,4 +39,10 @@ public class JsonDataController {
         return productDAO.listActiveProductsByCategory(id);
     }
 
+    //TODO check user authorization in service layer
+    @RequestMapping("/user/{id}/addresses")
+    public List<Address> getAllUserAddresses(@PathVariable int id){
+
+        return userDAO.listAddresses(userDAO.get(id));
+    }
 }

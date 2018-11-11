@@ -471,7 +471,6 @@ $ (function () {
     });
     //-----------------------------------------
 
-
     //handling the click event of change password button
 
     $('button[id="changePassword"]').click(function () {
@@ -506,6 +505,121 @@ $ (function () {
             }
         });
     }
+    //-----------------------------------------
+
+    //user address table
+
+    var $userAddressTable = $('#userAddressTable');
+
+    if ($userAddressTable.length){
+
+        var jsonUrl = window.contextRoot + '/json/data/user/{id}/products';
+
+
+        //console.log('Inside the table');
+
+        $userAddressTable.DataTable({
+
+            lengthMenu: [[3,5,10,-1], ['3 записи', '5 записей','10 записей','Все адреса']],
+            pageLength: 5,
+            ajax: {
+                url: jsonUrl,
+                dataSrc: ''
+            },
+            columns: [
+                {
+                    data: 'addressLineOne'
+                },
+                // {
+                //     data: 'code',
+                //     mRender: function (data, type, row) {
+                //         return '<img src="'+ window.contextRoot + '/resources/images/' + data + '.jpg" class="adminDataTableImg"/>';
+                //     }
+                // },
+                {
+                    data: 'addressLineTwo'
+                },
+                {
+                    data: 'city'
+                },
+                {
+                    data: 'postalCode'
+                },
+                {
+                    data: 'isBillingAddress',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+                        var str = '';
+
+                        if (data){
+                            str = 'Основной адресс';
+                        }
+                        else{
+                            str = 'Адресс доставки';
+                        }
+
+                        return str;
+                    }
+                },
+                {
+                    data: 'id',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+
+
+                        var str = '';
+
+                        // <button type="button" data-toggle="modal" data-target="#myCategoryModal" class="btn btn-primary btn-sm">Add Category</button>
+
+                        str += '<button type="button" data-toggle="modal" data-target="#myAddressModal" class="fas fa-pencil-alt"></button>';
+
+                        return str;
+                    }
+                },
+                {
+                    data: 'id',
+                    bSortable: false,
+                    mRender: function (data, type, row) {
+                        var str = '';
+
+
+
+                        str += '<a href="'
+                            + window.contextRoot
+                            + '/user/delete/address/'
+                            + data
+                            + ' " class="btn btn-warning deleteAddressButton"><span class="fas fa-backspace"></span></a>';
+
+
+                        return str;
+                    }
+                }
+            ],
+
+            initComplete: function () {
+
+                $('button[id="deleteAddressButton"]').click(function () {
+
+                    bootbox.confirm({
+                        size: 'medium',
+                        title: 'Удаление адреса',
+                        message: 'Пдтвердите удаление адреса',
+                        callback: function(confirmed) {
+
+                            if (confirmed){
+
+                                console.log(value);
+
+                                var activationURL = window.contextRoot + '/user/delete/address/' + userId;
+                                $.get(activationURL);
+                            }
+                        }
+                    });
+                });
+            }
+        });
+    }
+
     //-----------------------------------------
 
 });

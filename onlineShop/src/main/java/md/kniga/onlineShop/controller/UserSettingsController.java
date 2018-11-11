@@ -82,4 +82,32 @@ public class UserSettingsController {
         return "redirect:/user/details?operation=updateUserDetail";
     }
 
+    @RequestMapping(value = "/delete/address/{id}", method = RequestMethod.POST)
+    public String deleteAddress(@PathVariable("id") int id, Model model){
+
+        if(userDAO.deleteAddress(id)){
+            model.addAttribute("userClickSettings",true);
+            model.addAttribute("title", "User Setting");
+            model.addAttribute("successMessage", "Адрес удалён!");
+            return "redirect:/user/details?operation=updateUserDetail";
+        }
+        return "page";
+    }
+
+    //TODO check accessible this address for current user
+    @RequestMapping(value = "/change/address/{id}", method = RequestMethod.POST)
+    public String changeAddress(@PathVariable("id") int id){
+
+        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        // viewResolver (bean viewResolver in dispatcher-servlet.xml)
+        User user = userDAO.get(userModel.getId());
+        List<Address> addresses = userDAO.listAddresses(user);
+        mv.addObject("title", "User Setting");
+        mv.addObject("user", user);
+        mv.addObject("addresses", addresses);
+        mv.addObject("userClickSettings", true);
+
+        return "page";
+    }
+
 }

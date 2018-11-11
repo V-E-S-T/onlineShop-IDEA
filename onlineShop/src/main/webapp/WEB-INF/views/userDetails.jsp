@@ -141,4 +141,127 @@
         </div>
     </div>
 
+    <%--addresses--%>
+
+    <div class="row">
+        <div class="col-12">
+            <hr/>
+            <h1>Адреса</h1>
+            <hr/>
+        </div>
+        <div class="col-12">
+
+            <div class="container-fluid">
+                <div class="table-responsive">
+
+                    <table id="userAddressTable" class="table table-condensed table-bordered" style="overflow:auto">
+                        <thead>
+                        <tr>
+                            <th>Улица</th>
+                            <th>Номер дома/квартиры</th>
+                            <th>Город</th>
+                            <th>Почтовый код</th>
+                            <th>Основной Адрес</th>
+                            <th>Адрес доставки</th>
+                            <th>Изменть Адрес</th>
+                            <th>Удалить Адрес</th>
+                        </tr>
+                        </thead>
+
+                        <tfoot>
+                        <tr>
+                            <th>Улица</th>
+                            <th>Номер дома/квартиры</th>
+                            <th>Город</th>
+                            <th>Почтовый код</th>
+                            <th>Основной Адрес</th>
+                            <th>Адрес доставки</th>
+                            <th>Изменть Адрес</th>
+                            <th>Удалить Адрес</th>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal" id="myAddressModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <%--Modal header--%>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"></button>
+                    <span>&times;</span>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <%--Category Form--%>
+                    <sf:form modelAttribute="address" action="${contextRoot}/user/change/address" method="POST" cssClass="form-group" id="addressForm">
+                        <div class="row">
+
+                            <label for="addressLineOne" class="col-form-label col-md-4 text-xl-left text-primary">Улица</label>
+                            <div class="col-md-8">
+                                    <%--attribute path="name" should be correspond Product field "name" --%>
+                                <sf:input path="addressLineOne" type="text" class="form-control" id="addressLineOne" name="addressLineOne" placeholder="Укажите улицу"/>
+                                <sf:errors path="addressLineOne" cssClass="help-block" element="em"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="addressLineTwo" class="col-form-label col-md-4 text-xl-left text-primary">Номер дома/квартиры</label>
+                            <div class="col-md-8">
+                                <sf:input path="addressLineTwo" type="text" class="form-control" id="addressLineTwo" name="addressLineTwo" placeholder="Укажите номер дома/квартиры"/>
+                                <sf:errors path="addressLineTwo" cssClass="help-block" element="em"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="city" class="col-form-label col-md-4 text-xl-left text-primary">Город</label>
+                            <div class="col-md-8">
+                                <sf:input path="city" type="text" class="form-control" id="city" name="city" placeholder="Укажите город"/>
+                                <sf:errors path="city" cssClass="help-block" element="em"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <label for="postalCode" class="col-form-label col-md-4 text-xl-left text-primary">Почтовый код</label>
+                            <div class="col-md-8">
+                                <sf:input path="postalCode" type="text" class="form-control" id="postalCode" name="postalCode" placeholder="Укажите почтовый код"/>
+                                <sf:errors path="postalCode" cssClass="help-block" element="em"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-form-label col-md-10">
+
+                                <input type="submit" class="btn btn-outline-primary btn-lg" id="submit" name="submit" value="Submit">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-form-label col-md-10">
+                                <input type="submit" class="btn btn-outline-primary btn-lg" id="submit" name="submit" value="Submit">
+                                <sf:hidden path="id"/>
+                                <sf:hidden path="state"/>
+                                <sf:hidden path="country"/>
+                                <sf:hidden path="purchases"/>
+                                <sf:hidden path="views"/>
+                            </div>
+                        </div>
+
+                    </sf:form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
 </div>

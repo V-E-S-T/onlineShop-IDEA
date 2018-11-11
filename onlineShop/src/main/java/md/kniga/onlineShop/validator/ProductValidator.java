@@ -1,4 +1,4 @@
-package validator;
+package md.kniga.onlineShop.validator;
 
 import md.kniga.backendOnlineShop.dto.Product;
 import org.springframework.lang.Nullable;

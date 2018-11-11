@@ -31,6 +31,8 @@
             window.contextRoot = '${contextRoot}';
 
             var userRole = '${userModel.getRole()}'
+
+            var userId = '${userModel.getId()}'
         </script>
 
         <!-- Bootstrap core CSS -->

@@ -29,5 +29,5 @@ public interface UserDAO {
 
     List<Address> listAddresses(User user);
 
-
+    boolean deleteAddress(int addressID);
 }

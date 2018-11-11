@@ -139,5 +139,10 @@ public class UserDAOImpl implements UserDAO{
         }
     }
 
+    @Override
+    public boolean deleteAddress(int addressId) {
 
+        Query query = sessionFactory.getCurrentSession().createQuery("DELETE FROM Address WHERE id=:addressId");
+        return query.setParameter("addressId", addressId).executeUpdate() != 0;
+    }
 }
