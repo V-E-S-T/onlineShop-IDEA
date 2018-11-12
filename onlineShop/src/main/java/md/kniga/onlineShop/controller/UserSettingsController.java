@@ -95,19 +95,31 @@ public class UserSettingsController {
     }
 
     //TODO check accessible this address for current user
-    @RequestMapping(value = "/change/address/{id}", method = RequestMethod.POST)
-    public String changeAddress(@PathVariable("id") int id){
+    @RequestMapping(value = "/change/address", method = RequestMethod.GET)
+    public String updateAddress(@Valid @ModelAttribute("address") Address address, BindingResult bindingResult, Model model){
 
-        ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+        if(userDAO.updateAddress(address)){
+            model.addAttribute("userClickSettings",true);
+            model.addAttribute("title", "User Setting");
+            model.addAttribute("successMessage", "Форма не заполнена!");
+            return "page";
+        }
+
+
+        //ModelAndView mv = new ModelAndView("page");    // "page" is a logical name, so to resolve a physical page name we need to use
+
+
+
+
         // viewResolver (bean viewResolver in dispatcher-servlet.xml)
-        User user = userDAO.get(userModel.getId());
-        List<Address> addresses = userDAO.listAddresses(user);
-        mv.addObject("title", "User Setting");
-        mv.addObject("user", user);
-        mv.addObject("addresses", addresses);
-        mv.addObject("userClickSettings", true);
+        //User user = userDAO.get(userModel.getId());
+        //List<Address> addresses = userDAO.listAddresses(user);
+        //mv.addObject("title", "User Setting");
+        //mv.addObject("user", user);
+        //mv.addObject("address", address);
+        //mv.addObject("userClickSettings", true);
 
-        return "page";
+        return "redirect:/user/details?operation=updateUserDetail";
     }
 
 }

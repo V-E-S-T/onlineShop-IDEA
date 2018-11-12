@@ -145,4 +145,17 @@ public class UserDAOImpl implements UserDAO{
         Query query = sessionFactory.getCurrentSession().createQuery("DELETE FROM Address WHERE id=:addressId");
         return query.setParameter("addressId", addressId).executeUpdate() != 0;
     }
+
+    @Override
+    public boolean updateAddress(Address address) {
+
+        try{
+            sessionFactory.getCurrentSession().update(address);
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

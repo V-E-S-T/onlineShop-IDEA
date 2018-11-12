@@ -186,6 +186,7 @@
         </div>
     </div>
 
+    <%--address modal window--%>
 
     <div class="modal" id="myAddressModal" role="dialog" tabindex="-1">
         <div class="modal-dialog" role="document">
